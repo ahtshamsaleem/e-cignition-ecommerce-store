@@ -1,0 +1,44 @@
+.outer {
+    
+}
+
+
+.inner {
+    width: 500px;
+    height: auto;
+    
+
+}
+
+.inner .wrapper input {
+    
+    width: 100%;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* background-color: white; */
+    border-radius: 4px;
+    outline: none;
+
+
+
+}
+
+/* .xwidth {
+    width: 1000px;
+
+    bg-gray-100 focus:bg-white
+}
+
+.inner .xwidth input {
+    width: 120%;
+    
+} */
+
+
+.inner .wrapper label {
+    font-size: medium;
+    font-weight: bold;
+    
+}
