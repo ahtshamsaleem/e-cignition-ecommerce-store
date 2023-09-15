@@ -90,7 +90,7 @@ const validateAddress = (value) => {
 
 
 const validateCity = (value) => {
-    if (value.trim() === '' || value.length < 8) {
+    if (value.trim() === '' ) {
         return false;
     }
     return true;
@@ -104,7 +104,7 @@ export const validateInput2 = (inputName, value) => {
         case 'phone': return validatePhone(value);
         case 'password': return validatePassword(value);
         case 'address': return validateAddress(value);
-        case 'address': return validateCity(value);
+        case 'city': return validateCity(value);
         
         default:
             break;

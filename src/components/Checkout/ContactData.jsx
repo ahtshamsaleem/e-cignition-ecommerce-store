@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import './checkout.css';
+import axios from 'axios';
 
 const ContactData = () => {
     const orderedProducts = useSelector((state) => state.cart.products);
@@ -124,6 +125,10 @@ const ContactData = () => {
         };
 
         console.log(order);
+
+        axios.post('https://e-cignition-ecommerce-store-default-rtdb.firebaseio.com/orders.json',  order)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err))
     };
 
 
