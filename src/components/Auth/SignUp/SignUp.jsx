@@ -59,6 +59,7 @@ const SignUp = () => {
         }
     };
 
+    
     const submitHandler = (event) => {
         event.preventDefault();
         const userCredentials = {

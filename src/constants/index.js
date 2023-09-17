@@ -17,6 +17,7 @@ export const navLinks = [
     },
     { href: "#contact-us", label: "Contact Us" },
     { href: "#about-us", label: "About Us" },
+    {to: '/my-orders', label: 'My Orders'}
 ];
 
 export const statistics = [

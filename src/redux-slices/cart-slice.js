@@ -66,11 +66,17 @@ let cartSlice = createSlice({
         deleteFromCart: (state, action) => {
             state.products.splice(action.payload, 1);
         },
+
+        emptyTheCart: (state) => {
+            
+            state.products = [];
+        }
+
     },
 });
 
 
-export const { addToCart, deleteFromCart, setQuantity, totalPrice, calculatePrice } = cartSlice.actions;
+export const { addToCart, deleteFromCart, setQuantity, totalPrice, calculatePrice, emptyTheCart } = cartSlice.actions;
 
 
 export default cartSlice.reducer;

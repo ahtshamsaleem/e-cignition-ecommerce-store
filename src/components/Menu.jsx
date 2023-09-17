@@ -37,17 +37,36 @@ const Menu = ({closeMN}) => {
                 
               );
             } else {
-              return (
+                if (item.href) {
+                    return (
                 <li key={item.label} onClick={closeMN}>
               <a
                 
                 href={item.href}
+                
                 className='font-montserrat leading-normal text-lg text-slate-gray'
               >
                 {item.label}
               </a>
               </li>
               )
+                } else {
+                    return (
+                <li key={item.label} onClick={closeMN}>
+              <Link
+                
+                to={item.to}
+                
+                className='font-montserrat leading-normal text-lg text-slate-gray'
+              >
+                {item.label}
+              </Link>
+              </li>
+              )
+                }
+            
+
+              
             }
           })}
 

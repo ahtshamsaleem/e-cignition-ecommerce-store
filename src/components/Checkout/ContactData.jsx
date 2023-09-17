@@ -2,11 +2,19 @@ import React from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import './checkout.css';
-import axios from 'axios';
+import { createOrder } from '../../redux-slices/orders-slice'
+import { useDispatch, useSelector} from 'react-redux'
+
+import Spinner from '../UI/Spinner';
+import { emptyTheCart } from '../../redux-slices/cart-slice';
+import { useNavigate } from 'react-router-dom';
 
 const ContactData = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+ const isLoading = useSelector(state => state.orders.isLoading)
+
     const orderedProducts = useSelector((state) => state.cart.products);
     const totalPrice = useSelector((state) => state.cart.totalPrice);
 
@@ -120,15 +128,15 @@ const ContactData = () => {
 
         const order = {
             orderedProducts,
-            totalPrice,
             contactInfo,
+            totalPrice,
         };
 
-        console.log(order);
+        dispatch(createOrder(order));
+        dispatch(emptyTheCart());
+        navigate('/')
 
-        axios.post('https://e-cignition-ecommerce-store-default-rtdb.firebaseio.com/orders.json',  order)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err))
+        
     };
 
 
@@ -136,8 +144,10 @@ const ContactData = () => {
 
 
     return (
-        <>
-            <div className='outer w-full mt-5 max-md:w-[90vw] '>
+        <>  
+            {
+                isLoading ? Spinner : (
+                    <div className='outer w-full mt-5 max-md:w-[90vw] '>
                 <form onSubmit={onSubmitHandler}>
                     <div ref={ref} className='inner w-full flex flex-col p-8 max-md:px-4 max-md:py-8 rounded-lg shadow-black/[0.4] shadow-md  bg-slate-300 from-[#4ca1af] to-[#c4e0e5] ' >
                     <div className='wrapper xwidth flex flex-col items-start mb-2 '>
@@ -209,6 +219,9 @@ const ContactData = () => {
                     <button className='w-[100%] h-auto bg-gradient-to-r from-cyan-500 to-teal-400 font-semibold py-2 text-white text-lg tracking-wide rounded-md shadow-sm shadow-black/[0.5]  hover:bg-gradient-to-r hover:from-cyan-500/[0.8] hover:to-teal-400/[0.8] hover:text-white mt-4'>Place Order</button></div>
                 </form>
             </div>
+                )
+            }
+            
         </>
     );
 };

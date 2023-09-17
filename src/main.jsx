@@ -6,11 +6,13 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { configureStore } from '@reduxjs/toolkit'
 import cartReducer from './redux-slices/cart-slice'
+import ordersReducer from './redux-slices/orders-slice'
 
 
 const store = configureStore({
     reducer: {
-        cart: cartReducer
+        cart: cartReducer,
+        orders: ordersReducer
     }
 })
 
