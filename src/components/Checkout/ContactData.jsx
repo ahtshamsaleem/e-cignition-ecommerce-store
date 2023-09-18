@@ -7,8 +7,9 @@ import { createOrder } from '../../redux-slices/orders-slice'
 import { useDispatch, useSelector} from 'react-redux'
 
 import Spinner from '../UI/Spinner';
-import { emptyTheCart } from '../../redux-slices/cart-slice';
+
 import { useNavigate } from 'react-router-dom';
+import OrderedModal from './OrderedModal';
 
 const ContactData = () => {
     const navigate = useNavigate();
@@ -17,6 +18,8 @@ const ContactData = () => {
 
     const orderedProducts = useSelector((state) => state.cart.products);
     const totalPrice = useSelector((state) => state.cart.totalPrice);
+
+    const [orderModal, setOrderModal] = useState(false)
 
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -133,8 +136,9 @@ const ContactData = () => {
         };
 
         dispatch(createOrder(order));
-        dispatch(emptyTheCart());
-        navigate('/')
+
+        setOrderModal(true);
+        
 
         
     };
@@ -145,6 +149,8 @@ const ContactData = () => {
 
     return (
         <>  
+
+            {orderModal && <OrderedModal products={orderedProducts} />}
             {
                 isLoading ? Spinner : (
                     <div className='outer w-full mt-5 max-md:w-[90vw] '>

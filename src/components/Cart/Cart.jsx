@@ -22,7 +22,12 @@ const Cart = ({ children }) => {
                             <CartItems />
                         </div>
                         <div className='self-end mr-4'>
-                            <h3 className='font-semibold py-1 items-center justify-center flex'>
+                            <h3 className='font-medium text-black/[0.8] pr-1 items-center justify-end flex '>
+                               
+                                Shipping Charges : Free
+                            </h3>
+                            <h3 className='font-semibold py-1 items-center pr-1 justify-end flex '>
+                               
                                 Total Price : Rs. {totalPriceIs}
                             </h3>
                             <button
