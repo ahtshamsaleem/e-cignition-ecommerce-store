@@ -7,12 +7,14 @@ import { Provider } from "react-redux";
 import { configureStore } from '@reduxjs/toolkit'
 import cartReducer from './redux-slices/cart-slice'
 import ordersReducer from './redux-slices/orders-slice'
+import authReducer from './redux-slices/auth-slice'
 
 
 const store = configureStore({
     reducer: {
         cart: cartReducer,
-        orders: ordersReducer
+        orders: ordersReducer,
+        auth: authReducer
     }
 })
 

@@ -4,19 +4,27 @@ import Header from '../../Header';
 import { InputCmp, RadioInputGender } from './components/components';
 import { validateInput2 } from '../../../Utility/ValidateInput';
 
+import { auth } from '../../../firebase';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../../../redux-slices/auth-slice';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+
 const SignUp = () => {
-    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [city, setCity] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [city, setCity] = useState('');
     const [gender, setGender] = useState('');
 
     const [isValid, setIsValid] = useState({
-        name: true,
         email: true,
-        city: true,
         password: true,
+        name: true,
+        city: true,
     });
+
+
+    const dispatch = useDispatch();
 
     const inputHandler = (event) => {
         switch (event.target.name) {
@@ -63,6 +71,7 @@ const SignUp = () => {
     const submitHandler = (event) => {
         event.preventDefault();
         const userCredentials = {
+            auth: auth,
             email: email,
             password: password,
         };
@@ -75,6 +84,11 @@ const SignUp = () => {
             gender,
         };
 
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredentials) => {
+            
+        })
+        .catch(error => error)
         
     };
 

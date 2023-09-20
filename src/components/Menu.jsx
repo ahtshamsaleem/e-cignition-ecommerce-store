@@ -1,11 +1,29 @@
 import React, { useState } from 'react'
 import { IoIosArrowDown } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { navLinks } from '../constants';
+import { signOut } from 'firebase/auth';
+import { removeUser } from '../redux-slices/auth-slice';
+import { auth } from '../firebase';
+
 
 const Menu = ({closeMN}) => {
     
     const [showSubMenu, setShowSubMenu] = useState(false);
+
+    const isUser = useSelector(s => s.auth.user)
+ const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const logoutHandler = () => {
+        signOut(auth);
+        dispatch(removeUser());
+        navigate('/sign-in');
+        console.log('loggedout')
+    }
+
+
+
   return (
     <>
     
@@ -70,11 +88,16 @@ const Menu = ({closeMN}) => {
             }
           })}
 
-          <li className='flex gap-2 leading-normal font-medium font-montserrat  wide:mr-24' >
+          {
+            isUser ? <li className='flex gap-2 leading-normal font-medium font-montserrat  wide:mr-24' >
+          <a className='cursor-pointer' onClick={logoutHandler}>Log out</a> </li> : (
+                <li className='flex gap-2 leading-normal font-medium font-montserrat  wide:mr-24' >
           <Link to='/sign-in'>Sign in</Link>
           <span>/</span>
           <Link to='/sign-up'>Sign up</Link>
         </li>
+            )
+          }
         </ul>
 
     </>

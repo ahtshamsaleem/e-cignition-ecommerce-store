@@ -81,7 +81,7 @@ const ordersSlice = createSlice({
             for (let item of ordersArr) {
                 let totalQuantity=0;
                
-                item.orderedProducts.forEach((item) => {
+                item.orderedProducts?.forEach((item) => {
                         totalQuantity = totalQuantity + item.quantity;
                 })
 

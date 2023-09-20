@@ -5,7 +5,8 @@ import { RxCross2 } from 'react-icons/rx'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { emptyTheCart } from '../../redux-slices/cart-slice';
-import { useEffect } from 'react'
+import {BsFillBagHeartFill} from 'react-icons/bs'
+import {TbTruckDelivery} from 'react-icons/tb'
 
 
 
@@ -26,7 +27,7 @@ const OrderedModal = ({products}) => {
         <div className='flex flex-col'>
         <h2 className='font-bold text-3xl font-montserrat '>Ordered <span className='text-green-600'>Successfully</span></h2>
         <h3>Delivery Status : Pending </h3>
-        <h3>Your items will be delivered within 3-4 days </h3>
+        <h3 className='flex items-center '>Your items will be delivered within 3-4 days <TbTruckDelivery /> </h3>
         <div className='overflow-hidden'> 
         <ul>
                         {products.map((item, index) => {
@@ -47,7 +48,7 @@ const OrderedModal = ({products}) => {
                         })}
                     </ul>
          </div>
-         <h2 className='text-sm'>Thank you for shopping with us</h2>
+         <h2 className='text-sm flex items-center'>Thank you for shopping with us  <BsFillBagHeartFill className='mx-1 text-green-700 scale-110 '/></h2>
          <h2 className='text-sm '>Contact us at <span className='text-black font-semibold'>03016667656</span> for any queries!</h2>
         </div>
     </div>
