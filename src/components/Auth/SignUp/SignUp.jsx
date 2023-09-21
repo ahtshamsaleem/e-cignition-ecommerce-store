@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../Header';
 import { InputCmp, RadioInputGender } from './components/components';
 import { validateInput2 } from '../../../Utility/ValidateInput';
@@ -8,8 +8,17 @@ import { auth } from '../../../firebase';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../../redux-slices/auth-slice';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import Spinner from '../../UI/Spinner';
+import { Footer } from '../../../sections';
 
 const SignUp = () => {
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [showPass, setShowPass] = useState(false);
+    const ref = useRef();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -83,17 +92,49 @@ const SignUp = () => {
             password,
             gender,
         };
-
+        setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredentials) => {
-            
+            setIsLoading(false);
+            setError('')
+            dispatch(addUser({
+                uid: userCredentials.user.uid,
+                email: userCredentials.user.email,
+
+
+             }));
+
+             navigate('/my-orders');
         })
-        .catch(error => error)
+        .catch(error => {
+            setIsLoading(false);
+            setError('Failed to signup! Email already in use');
+
+        })
         
     };
 
+
+
+    const eyeHandler = (e) => {
+        console.log(e)
+        console.log(ref)
+        if (ref.current.type === 'text'){
+            ref.current.type = 'password'
+        } else {
+            ref.current.type = 'text'
+        }
+        
+
+        setShowPass((prevState) => {
+            return !prevState;
+        })
+    }
+
+
     return (
-        <>
+        <>  
+        {isLoading && <div className='fixed w-[100vw] h-[100vh] z-[200] flex justify-center items-center bg-gray-600/[0.1] backdrop-blur-[2px] '><div className='text-red-400 '><Spinner /></div> </div>}
             <Header />
             <section className=' w-full mt-[80px] py-28 px-28 xl:px-64 bg-gray-200 from-orange-500 to-rose-400 max-lg:p-8'>
                 <div className='flex flex-row justify-center items-center bg-white rounded-xl overflow-hidden shadow-lg '>
@@ -140,7 +181,10 @@ const SignUp = () => {
                                 onChange={inputHandler}
                             />
 
+                            <div className="relative w-full ">
+
                             <InputCmp
+                                forwardRef={ref}
                                 isValid={isValid.password}
                                 label='Password'
                                 name='password'
@@ -149,6 +193,8 @@ const SignUp = () => {
                                 value={password}
                                 onChange={inputHandler}
                             />
+                            <span className='absolute  bottom-5 right-4' onClick={eyeHandler}>{(showPass && <AiOutlineEye className='scale-150 text-black/[0.5]' />) || <AiOutlineEyeInvisible className='scale-150 text-black/[0.5]'/>}</span>
+                            </div>
 
                             <RadioInputGender
                                 gender={gender}
@@ -172,10 +218,16 @@ const SignUp = () => {
                                     </Link>
                                 </h3>
                             </div>
+
+                            {error && (<div className='pt-4 flex flex-col items-center'><h3 className='text-red-500 font-semibold text-lg '>{error}</h3></div>)}
                         </form>
                     </div>
                 </div>
             </section>
+
+            <section className=' bg-black padding-x padding-t pb-8'>
+          <Footer />
+        </section>
         </>
     );
 };

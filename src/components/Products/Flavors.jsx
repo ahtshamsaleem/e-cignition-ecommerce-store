@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { products } from '../../constants';
+import { Footer } from '../../sections';
 import Header from '../Header';
 import PopularProductCard from '../PopularProductCard';
 import ProductDetails from '../productDetails/ProductDetails';
@@ -57,6 +58,10 @@ const Flavors = () => {
                     ))}
                 </div>
             </section>
+
+            <section className=' bg-black padding-x padding-t pb-8'>
+          <Footer />
+        </section>
         </>
     );
 };

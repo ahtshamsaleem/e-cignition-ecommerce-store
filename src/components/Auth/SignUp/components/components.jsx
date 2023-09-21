@@ -7,12 +7,17 @@ export const InputCmp = ({
     name,
     value,
     onChange,
-    isValid
+    isValid,
+    forwardRef
 }) => {
+
+
+    // const ref = useRef()
     return (
         <div className='flex py-2 justify-between w-full items-center max-lg:flex-col max-lg:items-start'>
             <label className='font-semibold text-lg  '>{label}</label>
             <input
+                ref={forwardRef}
                 onChange={onChange}
                 value={value}
                 name={name}

@@ -13,7 +13,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
     user: null,
-    
+    isAdmin: false
 }
 
 
@@ -25,6 +25,9 @@ const authSlice = createSlice({
             state.isLoading = false;
             state.user = action.payload;
             //console.log(action.payload)
+            if (action.payload.email === 'umershah@gmail.com') {
+                state.isAdmin = true;
+            }
         },
 
         removeUser : (state) => {

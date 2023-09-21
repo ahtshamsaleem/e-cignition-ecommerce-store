@@ -133,6 +133,7 @@ const ContactData = () => {
             orderedProducts,
             contactInfo,
             totalPrice,
+            email
         };
 
         dispatch(createOrder(order));

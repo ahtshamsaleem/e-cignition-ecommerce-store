@@ -9,8 +9,9 @@ import MyOrders from './components/Orders/myOrders/MyOrders';
 import ProtectedRoute from './ProtectedRoute';
 import { useEffect } from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { authStateChange } from './authStateChange';
+import AdminOrders from './components/Orders/adminOrders/AdminOrders';
 
 
 
@@ -22,6 +23,17 @@ const App = () => {
         return unsub;
     }, []);
 
+
+    const isAdmin = useSelector( state => state.auth.isAdmin);
+    let orders = (<MyOrders /> );
+
+    if (isAdmin) {
+        orders = (<AdminOrders /> );
+    }
+
+
+
+
     return (
         <>
             <Routes>
@@ -31,7 +43,7 @@ const App = () => {
                 <Route path='/flavors' element={<Flavors />} />
                 <Route path='/sign-in' element={<SignIn />} />
                 <Route path='/sign-up' element={<SignUp />} />
-                <Route path='/my-orders' element={<ProtectedRoute> <MyOrders /> </ProtectedRoute>}/>
+                <Route path='/my-orders' element={<ProtectedRoute> {orders} </ProtectedRoute>}/>
             </Routes>
         </>
     );

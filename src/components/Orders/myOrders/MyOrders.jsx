@@ -3,18 +3,24 @@ import Header from '../../Header';
 import { useDispatch, useSelector } from 'react-redux';
 import MyOrder from './MyOrder';
 import { useEffect } from 'react';
-import { fetchOrders } from '../../../redux-slices/orders-slice';
+import { fetchOrders, removeAllOrders } from '../../../redux-slices/orders-slice';
 import Spinner from '../../UI/Spinner';
 import { useMemo } from 'react';
 
 const MyOrders = () => {
     const myOrders = useSelector((state) => state.orders.orders);
     const isLoading = useSelector((state) => state.orders.isLoading);
+    const email = useSelector(state => state.auth.user.email)
+
     const dispatch = useDispatch();
 
 
     useEffect(() => {
-        dispatch(fetchOrders());
+
+            dispatch(fetchOrders(email));
+
+            return () => dispatch(removeAllOrders());
+        
     }, []);
 
     return (

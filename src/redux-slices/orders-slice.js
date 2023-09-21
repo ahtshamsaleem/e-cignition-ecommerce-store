@@ -15,16 +15,19 @@ export const createOrder = createAsyncThunk('orders/createOrder', async (order) 
 
 
 
-export const fetchOrders = createAsyncThunk('orders/fetchOrders', async () => {
-    const orders = axios.get('https://e-cignition-ecommerce-store-default-rtdb.firebaseio.com/orders.json')
+export const fetchOrders = createAsyncThunk('orders/fetchOrders', async (email, {getState}) => {
+    let url = `https://e-cignition-ecommerce-store-default-rtdb.firebaseio.com/orders.json?orderBy="email"&equalTo="${email}"`
+    if (getState().auth.isAdmin) {
+        url = `https://e-cignition-ecommerce-store-default-rtdb.firebaseio.com/orders.json`;
+    }
+    const orders = axios.get(url)
     .then((response) => {
-        
+        console.log(response)
         return response.data;
     })
     
     return orders;
 })
-
 
 
 
@@ -51,7 +54,11 @@ const initialState = {
 const ordersSlice = createSlice({
     name: 'orders',
     initialState,
-    reducers:{},
+    reducers:{
+        removeAllOrders : (state) => {
+            state.orders = [];
+        }
+    },
 
     extraReducers: {
         [createOrder.pending] : (state) => {
@@ -111,8 +118,7 @@ const ordersSlice = createSlice({
 
 
 
-
-// export const { createOrder } = ordersSlice.actions;
+export const {removeAllOrders} = ordersSlice.actions;
 
 
 export default ordersSlice.reducer;
