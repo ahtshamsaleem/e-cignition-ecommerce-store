@@ -12,12 +12,16 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authStateChange } from './authStateChange';
 import AdminOrders from './components/Orders/adminOrders/AdminOrders';
+import { getOrderNumber } from './redux-slices/orders-slice';
 
 
 
 const App = () => {
     const dispatch = useDispatch();
     useEffect(() => {
+
+       
+
         const unsub = authStateChange(dispatch);
 
         return unsub;

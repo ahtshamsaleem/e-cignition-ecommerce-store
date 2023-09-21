@@ -3,6 +3,50 @@ import axios from 'axios'
 
 
 
+export const punchOrderNumber = createAsyncThunk('orders/punchOrderNumber', async (s, {getState}) => {
+
+    const oldOrderNumber = getState().orders.orderNumber;
+    
+    const newOrderNumber = oldOrderNumber + 1;
+    const orderNumber = {
+        orderNumber : newOrderNumber
+    }
+    axios.post('https://e-cignition-ecommerce-store-default-rtdb.firebaseio.com/orderNumber.json',  orderNumber)
+        .then((res) => res)
+        .catch((err) => err)
+})
+
+
+
+export const getOrderNumber = createAsyncThunk('orders/getOrderNumber', async () => {
+    
+    const orderNumber = axios.get('https://e-cignition-ecommerce-store-default-rtdb.firebaseio.com/orderNumber.json')
+        .then((res) => res.data)
+        .catch((err) => err)
+
+
+    return orderNumber;
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const createOrder = createAsyncThunk('orders/createOrder', async (order) => {
     
@@ -46,7 +90,8 @@ export const fetchOrders = createAsyncThunk('orders/fetchOrders', async (email, 
 
 const initialState = {
     orders: [],
-    isLoading: false
+    isLoading: false,
+    orderNumber: 100
 }
 
 
@@ -94,12 +139,15 @@ const ordersSlice = createSlice({
 
 
 
-
+                console.log(item)
                 const order = {
-                    orderId: Math.random(),
+                    
+                    orderId: `EC-${item.orderId}`,
                     numberOfProducts: totalQuantity,
                     totalPrice: item.totalPrice,
-                    deliveryStatus: 'pending'
+                    deliveryStatus: 'pending',
+                    contactInfo: item.contactInfo,
+                    orderedProducts: item.orderedProducts
 
                 }
                 
@@ -110,7 +158,19 @@ const ordersSlice = createSlice({
 
         [fetchOrders.rejected] : (state) => {
             state.isLoading = false;
+        },
+
+
+
+
+        [getOrderNumber.fulfilled] : (state, action) => {
+           // console.log(action.payload);
+            const orderNumberArr = Object.values(action.payload)
+            //console.log(orderNumberArr[orderNumberArr.length - 1].orderNumber)
+            state.orderNumber = orderNumberArr[orderNumberArr.length - 1].orderNumber;
         }
+
+
     }
 
 })

@@ -1,0 +1,11 @@
+
+
+.customCSS > li {
+   padding-left: 2px;
+    width: 100%;
+   gap: 2px;
+   /* text-align: center; */
+    border-bottom:  1px solid rgba(0, 0, 0, 0.10);
+    
+    
+}

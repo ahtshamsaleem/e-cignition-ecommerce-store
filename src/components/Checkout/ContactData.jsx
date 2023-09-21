@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import './checkout.css';
-import { createOrder } from '../../redux-slices/orders-slice'
+import { createOrder, getOrderNumber, punchOrderNumber } from '../../redux-slices/orders-slice'
 import { useDispatch, useSelector} from 'react-redux'
 
 import Spinner from '../UI/Spinner';
@@ -14,6 +14,8 @@ import OrderedModal from './OrderedModal';
 const ContactData = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const orderId = useSelector(state => state.orders.orderNumber)
  const isLoading = useSelector(state => state.orders.isLoading)
 
     const orderedProducts = useSelector((state) => state.cart.products);
@@ -118,6 +120,10 @@ const ContactData = () => {
         }
     };
 
+
+
+  
+
     const onSubmitHandler = (event) => {
         event.preventDefault();
 
@@ -130,14 +136,15 @@ const ContactData = () => {
         };
 
         const order = {
+            orderId,
             orderedProducts,
             contactInfo,
             totalPrice,
             email
         };
-
+        
         dispatch(createOrder(order));
-
+        dispatch(punchOrderNumber())
         setOrderModal(true);
         
 
@@ -145,7 +152,9 @@ const ContactData = () => {
     };
 
 
-
+    useEffect(() => {
+        dispatch(getOrderNumber());
+    }, [])
 
 
     return (
