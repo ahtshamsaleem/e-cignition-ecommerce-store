@@ -4,8 +4,11 @@
    padding-left: 2px;
     width: 100%;
    gap: 2px;
-   /* text-align: center; */
+   text-align: end;
     border-bottom:  1px solid rgba(0, 0, 0, 0.10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     
     
 }

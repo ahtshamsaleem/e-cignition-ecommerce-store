@@ -27,7 +27,7 @@ const OrderedModal = ({products}) => {
         <div className='flex flex-col'>
         <h2 className='font-bold text-3xl font-montserrat '>Ordered <span className='text-green-600'>Successfully</span></h2>
         <h3>Delivery Status : Pending </h3>
-        <h3 className='flex items-center '>Your items will be delivered within 3-4 days <TbTruckDelivery /> </h3>
+        <h3 className=' '>Your items will be delivered within 3-4 days <TbTruckDelivery className='inline text-green-700'/> </h3>
         <div className='overflow-hidden'> 
         <ul>
                         {products.map((item, index) => {

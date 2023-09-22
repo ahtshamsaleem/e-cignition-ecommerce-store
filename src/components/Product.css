@@ -1,0 +1,20 @@
+.custom-outer {
+
+
+}
+
+.custom-inner {
+    /* transform: translateX(-500px); */
+    opacity: 0;
+    transition: all 400ms ease-out;
+}
+
+
+
+
+
+
+.custom-outer:hover .custom-inner {
+    transform: translateX(0);
+    opacity: 1;
+}

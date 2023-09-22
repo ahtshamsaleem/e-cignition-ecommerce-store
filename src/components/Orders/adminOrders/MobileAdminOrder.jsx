@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import OrderDetails from './OrderDetails';
 
 const MobileAdminOrder = ({ orderId, name, email, phone,  products, totalPrice, deliveryStatus, address }) => {
@@ -29,7 +29,7 @@ const MobileAdminOrder = ({ orderId, name, email, phone,  products, totalPrice, 
             <li>{orderId}</li>
             <li>{name}</li>
             <li>{totalPrice}</li>
-            <li onClick={arrowDownHandler}><IoIosArrowDown /></li>
+            <li onClick={arrowDownHandler}>{!showDetails ? <IoIosArrowDown /> : <IoIosArrowUp />}</li>
         </ul>
             {showDetails && <OrderDetails orderId={orderId} name={name} email={email} phone={phone}  products={products} totalPrice={totalPrice} deliveryStatus={deliveryStatus} address={address} />}
         </>
