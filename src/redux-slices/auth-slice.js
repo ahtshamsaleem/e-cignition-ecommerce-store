@@ -24,9 +24,11 @@ const authSlice = createSlice({
         addUser : (state, action) => {
             state.isLoading = false;
             state.user = action.payload;
-            //console.log(action.payload)
+            console.log(action.payload)
             if (action.payload.email === 'umershah@gmail.com') {
                 state.isAdmin = true;
+            } else {
+                state.isAdmin = false;
             }
         },
 

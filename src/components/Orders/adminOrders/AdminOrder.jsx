@@ -8,7 +8,7 @@ const AdminOrder = ({ orderId, name, email, phone,  products, totalPrice, delive
             <li>{email}</li>
             <li>{phone}</li>
             <ul>{products?.map((prod) => {
-                return <li>{prod.title}</li>
+                return <li key={prod.id}>{prod.title}  ({prod.quantity})</li>
             })}</ul>
             <li>{totalPrice}</li>
             <li>{deliveryStatus}</li>

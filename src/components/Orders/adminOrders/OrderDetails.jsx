@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './orderDetail.css';
 
 const OrderDetails = ({ orderId, name, email, phone,  products, totalPrice, deliveryStatus, address }) => {
@@ -13,7 +12,7 @@ const OrderDetails = ({ orderId, name, email, phone,  products, totalPrice, deli
                 <li>Products     <span>
                 {products?.map((prod) => {
                     console.log(prod)
-                return <li>{prod.title}  ({prod.quantity})</li>
+                return <ul key={prod.id}><li >{prod.title}  ({prod.quantity})</li></ul>
             })}
                 </span></li>
                 <li>Total Price  <span>{totalPrice}</span></li>

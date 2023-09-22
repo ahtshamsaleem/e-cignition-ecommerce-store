@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import Checkout from '../Checkout/Checkout';
 import { useState } from 'react';
 import Header from '../Header';
+import {bg1, bg2} from '../../assets/bg/index'
+import Footer from '../../sections/Footer';
+
 
 const Cart = ({ children }) => {
     const totalPriceIs = useSelector((state) => state.cart.totalPrice);
@@ -15,13 +18,13 @@ const Cart = ({ children }) => {
     return (
         <>
             <Header />
-           
-                <div className='w-[100vw]  h-full flex flex-row justify-center items-center py-10 mt-6 overflow-hidden'>
-                    <div className='w-[50%] h-auto flex flex-col justify-center items-center mt-10 max-md:w-[90vw] '>
+                <div className='w-[100vw]  h-full overflow-hidden bg-gradient-to-r from-[#c1dfc4] to-[#deecdd]'>
+                <div className={`h-auto flex flex-row justify-center items-center py-10  overflow-y-auto  `}>
+                    <div className='w-[50%] h-auto flex flex-col justify-center items-center mt-10 max-md:w-[90vw]  '>
                         <div className=''>
                             <CartItems />
                         </div>
-                        <div className='self-end mr-4'>
+                        <div className='self-end mr-4 '>
                             <h3 className='font-medium text-black/[0.8] pr-1 items-center justify-end flex '>
                                
                                 Shipping Charges : Free
@@ -42,6 +45,11 @@ const Cart = ({ children }) => {
                         {children}
                     </div>
                 </div>
+                </div>
+                <section className=' bg-black padding-x padding-t pb-8'>
+          <Footer />
+        </section>
+                
             
         </>
     );
@@ -54,3 +62,11 @@ export default Cart;
 {
     /* <div className='bg-[url(/src/assets/img/cart/4.jpg)] bg-cover  w-[100vw] h-[100vh]'> <div className='w-full h-full backdrop-blur-sm'></div> </div> */
 }
+
+
+
+
+
+
+
+//from-[#fddb92] to-[#d1fdff]

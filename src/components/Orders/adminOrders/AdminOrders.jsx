@@ -11,8 +11,10 @@ import { useState } from 'react';
 import MobileAdminOrder from './MobileAdminOrder';
 
 
+
 const AdminOrders = () => {
-    const [isMobile, setIsMobile] = useState(true);
+
+    const [isMobile, setIsMobile] = useState(false);
     const AdminOrders = useSelector((state) => state.orders.orders);
     const isLoading = useSelector((state) => state.orders.isLoading);
     const email = useSelector(state => state.auth.user.email)
@@ -20,10 +22,20 @@ const AdminOrders = () => {
     const dispatch = useDispatch();
     console.log(AdminOrders)
 
+
+    
+
+   
+   
+
+
+
     useEffect(() => {
 
-            dispatch(fetchOrders(email));
+       
 
+            dispatch(fetchOrders(email));
+            
             return () => dispatch(removeAllOrders());
         
     }, []);
@@ -46,11 +58,11 @@ const AdminOrders = () => {
                                 </h2>
                             </div>
 
-                            <div className='w-full  '>
+                            <div className='w-full  ' >
                             {
                                 !isMobile && (
                                     
-                                <div className='grid grid-flow-row min-w-[700px]'>
+                                <div className='grid grid-flow-row min-w-[700px] max-lg:hidden'>
                                     <ul className='grid grid-cols-9 gap-2 text-xl font-semibold justify-items-center bg-gray-100 py-4 '>
                                         <li>Order ID</li>
                                         <li>Name</li>
@@ -66,6 +78,7 @@ const AdminOrders = () => {
                                     {AdminOrders.map((item) => {
                                         return (
                                             <AdminOrder
+                                                key={item.orderId}
                                                 orderId={item.orderId}
                                                 name={item.contactInfo.name}
                                                 email={item.contactInfo.email}
@@ -87,25 +100,20 @@ const AdminOrders = () => {
 
 
 
-                                {isMobile && (
-                                    <div className='grid '>
+                                {!isMobile && (
+                                    <div className='grid lg:hidden'>
                                         <ul className='grid grid-cols-4 gap-2 text-xl font-semibold justify-items-center bg-gray-100 py-4 '>
                                             <li>Order ID</li>
                                             <li>Name</li>
                                             <li>Total Price</li>
                                             <li>Details</li>
-                                            {/* <li>Phone</li>
-                                            <li>Products</li>
                                             
-                                            <li>delivery status</li>
-                                            <li className='col-span-2'>
-                                                Address
-                                            </li> */}
                                         </ul>
 
                                         {AdminOrders.map((item) => {
                                             return (
                                                 <MobileAdminOrder
+                                                    key={item.orderId}
                                                     orderId={item.orderId}
                                                     name={item.contactInfo.name}
                                                     email={item.contactInfo.email}

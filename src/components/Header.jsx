@@ -22,7 +22,7 @@ const Header = () => {
 
     useEffect(() => {
         
-        document.addEventListener('scroll', scrollHandler)
+        document.addEventListener('scroll', scrollHandler);
 
         return () => {
             

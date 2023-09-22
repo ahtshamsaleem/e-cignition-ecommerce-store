@@ -35,7 +35,7 @@ const CartItem = ({imgURL, title, price, description, quantity, indexId, id }) =
 
 
     return (
-        <div className='w-full h-16 bg-slate-100 flex justify-between items-center px-10 py-4 mb-10 shadow-md max-md:px-6 max-md:text-sm'>
+        <div className=' rounded-md w-full h-16 bg-slate-100 flex justify-between  items-center px-10 py-4 mb-8 shadow-md max-md:px-6 max-md:text-sm'>
             <div className="flex justify-between items-center ">
                 <div className="mr-2">
                     <img src={imgURL} width={50} height={50} />
@@ -51,7 +51,7 @@ const CartItem = ({imgURL, title, price, description, quantity, indexId, id }) =
             <div className="flex flex-row justify-between items-center w-[35%]">
                 <div className=''>
                     <input
-                        className='w-9 bg-transparent border border-black outline-none rounded-sm pl-2 '
+                        className='w-9 bg-transparent border border-black outline-none rounded-sm pl-2  '
                         type='number'
                         placeholder="1"
                         value={quantity}

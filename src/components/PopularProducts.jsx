@@ -2,6 +2,8 @@ import { products } from '../constants';
 import { PopularProductCard } from '.';
 import { useState } from 'react';
 import ProductDetails from './productDetails/ProductDetails';
+import { useDispatch } from 'react-redux';
+import { addToCart, calculatePrice } from '../redux-slices/cart-slice';
 
 const PopularProducts = () => {
     const [showProdDetails, setShowProdDetails] = useState(false);
@@ -10,6 +12,7 @@ const PopularProducts = () => {
         title: 'Nike Air Jordan-01',
         price: '$200.20',
     });
+    const dispatch = useDispatch();
 
     const clickHandler = (product) => {
         setDetailsProduct(() => {
@@ -17,6 +20,15 @@ const PopularProducts = () => {
         });
         setShowProdDetails(true);
     };
+
+
+
+
+
+
+
+
+
 
     const productsArr = products.filter((item) => {
         return item.category === 'pods'
@@ -53,6 +65,10 @@ const PopularProducts = () => {
                             key={product.title}
                             {...product}
                             clickHandler={() => clickHandler(product)}
+                            btnHandler = {() => showDetailsBtnHandler(product)}
+                            atcHandler = {() => addToCartBtnHandler(product)}
+                            product={product}
+
                         />
                     ))}
                 </div>

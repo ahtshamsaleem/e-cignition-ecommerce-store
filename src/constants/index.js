@@ -2,7 +2,7 @@ import { facebook, instagram, shieldTick, support, truckFast, twitter } from "..
 import { customer1, customer2, voopooArgusG, argusP1, koko, UwellCaliburn} from "../assets/images";
 import { img1, img2, img3 } from '../assets/img'
 import { flv1, flv2, flv3, flv4, flv5, flv6, flv7, flv8 } from '../assets/img/flavors/index'
-import { pod0, pod1, pod2, pod3, pod4, pod5 } from "../assets/img/pods";
+import { pod0, pod1, pod2, pod3, pod4, pod5, gk1, gk2, gk3 } from "../assets/img/pods";
 
 export const navLinks = [
     { href: "/", label: "Home" },
@@ -66,14 +66,16 @@ export const products = [
     },
     {
         imgURL: pod3,
-        title: "Uwell Caliburn GK2 Pod ",
+        title: "Uwell Caliburn GK2 Pod",
         price: 6999,
         description:`Uwell Caliburn GK2 Pod System Kit is the right blend of cyberpunk, steampunk, and futuristic. Firstly, the Lightbars in the shape of KOKOs sparkle brilliantly through the curved glass. Secondly, the Light and vibration functions enable new methods of communicating with vapers. In addition to that, the light emits distinct colors, and the device vibrates in different states at various power levels.
         In addition, Vapers will have a more engaging experience thanks to the two designs. Moreover, the Caliburn GK2 cartridge has an airflow fine-tuning wheel at the bottom and is compatible with three CALIBURN G series coils and Caliburn G2 Coils (0.8/1.0/1.2ohm). With a total weight of only 45.2g and a lanyard included, the CALIBURN GK2 is extremely portable. Furthermore, it might also be a nice addition to your everyday attire. Above all, this device is a must-have for all the KOKO lovers out there.
          `,
         quantity: 1,
         category: 'pods',
-        id:3
+        id:3,
+
+        imgs: [gk1, gk2, gk3]
     },
     {
         imgURL: pod4,
@@ -120,11 +122,11 @@ export const products = [
     {
         imgURL: flv1,
         title: "Tokyo Iced Strawberry Watermelon 60ml",
-        price: 2950,
+        price: 123,
         description:"Presenting the new flavor of Tokyo Iced Strawberry Watermelon (60ml) - a tempting e-liquid that will take you to the trip of paradise, when your taste buds taste it! Give yourself a treat with the combo of sweet and lush fusion of ripe strawberries and refreshing watermelon, mixed to give you a perfect flavor.",
         quantity: 1,
         category: 'flavors',
-        id:3
+        id:6
     },
     {
         imgURL: flv2,
@@ -133,7 +135,7 @@ export const products = [
         description:"Tokyo Iced Strawberry Mango 60ml: Take a trip to the tropics with this refreshing blend of sweet strawberries and juicy mangoes, with a cool menthol finish. This delicious vape juice is perfect for all-day vaping, and it's certain to become your new favorite summer flavor.",
         quantity: 1,
         category: 'flavors',
-        id:4
+        id:7
     },
     {
         imgURL: flv3,
@@ -142,7 +144,7 @@ export const products = [
         description:"Tokyo Iced Strawberry Lychee 60ml is a bracing mix of sweet strawberries and succulent lychees, with the coldness of menthol finish. This pleasing vape juice is easy to use all day long, and it's definite to become your new choice for summer.",
         quantity: 1,
         category: 'flavors',
-        id:5
+        id: 8
     },
     {
         imgURL: flv4,
@@ -151,7 +153,7 @@ export const products = [
         description:"Are you tired of vape flavors and want to try something refreshing, Tokyo Iced Strawberry Kiwi 60ml is a sweet combination of fresh strawberries and cool menthol that gives cool effect. It is a delicious vape juice. Great for all day vaping.",
         quantity: 1,
         category: 'flavors',
-        id:6
+        id: 9
     },
     {
         imgURL: flv5,
@@ -160,7 +162,7 @@ export const products = [
         description:"Tokyo Iced Peach Melon 60ml is a delicious and refreshing vape juice that combines the sweet and juicy flavors of peach and melon with a cool menthol finish. It is the perfect vape juice for vapers who enjoy fruity flavors and are looking for a refreshing vape juice that will help them stay cool on hot days.",
         quantity: 1,
         category: 'flavors',
-        id:7
+        id:10
     },
     {
         imgURL: flv6,
@@ -169,7 +171,7 @@ export const products = [
         description:"Tokyo Iced Fruit Bomb 60ml is a delicious and refreshing vape juice that will transport you to the streets of Tokyo. This fruit bomb is a blend of sweet and tart fruits, including watermelon, strawberry, and lime. The icy menthol finish will leave you feeling cool and refreshed.",
         quantity: 1,
         category: 'flavors',
-        id:8
+        id:11
     },
     {
         imgURL: flv7,
@@ -178,7 +180,7 @@ export const products = [
         description:"Unlock the all new Tokyo Iced Cranberry Raspberry 60ml e-liquid that is now available at Vape Bazaar. And get the perfect taste of icy coolness and luscious cranberry raspberry flavor.Its a High quality E-juice made with expertise to provide the gentle and refreshing charm of vaping with every session. It is high quality salt that will make you crave more and more. Easy to use for seasoned as well as new vapers. Tokyo Iced ensures the user satisfaction and gives a sleek, joyful blend of fruity sweetness and a cooling effect.",
         quantity: 1,
         category: 'flavors',
-        id:9
+        id:12
     },
     {
         imgURL: flv8,
@@ -187,9 +189,9 @@ export const products = [
         description:"The new flavor of Tokyo iced blueberry is a unique and delicious e-liquid that is ideal for hot summery days. When you're exhausted and look for something refreshing like a blend of blueberry, watermelon, and menthol that will surely quench your thirst. The flavor of blueberry is sweet and tart. Watermelons gives a juicy whereas menthol provides refreshing and cool effect.",
         quantity: 1,
         category: 'flavors',
-        id:10
+        id:13
     },
-    {},
+    
 ]
 
         

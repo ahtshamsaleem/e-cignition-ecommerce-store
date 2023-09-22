@@ -165,13 +165,13 @@ const ContactData = () => {
                 isLoading ? Spinner : (
                     <div className='outer w-full mt-5 max-md:w-[90vw] '>
                 <form onSubmit={onSubmitHandler}>
-                    <div ref={ref} className='inner w-full flex flex-col p-8 max-md:px-4 max-md:py-8 rounded-lg shadow-black/[0.4] shadow-md  bg-slate-300 from-[#4ca1af] to-[#c4e0e5] ' >
+                    <div ref={ref} className='inner w-full flex flex-col p-8 max-md:px-4 max-md:py-8 rounded-lg shadow-black/[0.4] shadow-md  bg-gray-100/[0.2] ' >
                     <div className='wrapper xwidth flex flex-col items-start mb-2 '>
                                 <label htmlFor='name' 
                                     className=''
                                 >Name</label>
                                 <input
-                                    className={` ${!isValid.name ? 'bg-red-100 border-red-500  focus:border-red-500 border-2 shadow-md' : 'border-2 border-transparent bg-gray-100 focus:bg-white shadow-md'} `}
+                                    className={` ${!isValid.name ? 'bg-red-100 border-red-500  focus:border-red-500 border-2 shadow-md' : 'border-2 border-transparent bg-gray-100 focus:bg-white shadow-md focus:border-blue-500  '} `}
                                     placeholder='Name'
                                     type='text'
                                     name='name'
@@ -183,7 +183,7 @@ const ContactData = () => {
                             <div className='wrapper xwidth flex flex-col items-start mb-2 '>
                                 <label htmlFor='phone'>Phone</label>
                                 <input
-                                    className={` ${!isValid.phone ? 'bg-red-100 border-red-500  focus:border-red-500 border-2 shadow-md' : 'border-2 border-transparent bg-gray-100 focus:bg-white shadow-md'}`}
+                                    className={` ${!isValid.phone ? 'bg-red-100 border-red-500  focus:border-red-500 border-2 shadow-md' : 'border-2 border-transparent bg-gray-100 focus:bg-white shadow-md focus:border-blue-500'}`}
                                     
                                     type='text'
                                     placeholder='Phone No.'
@@ -196,7 +196,7 @@ const ContactData = () => {
                         <div className='wrapper flex flex-col items-start mb-2'>
                             <label htmlFor='name'>Email</label>
                             <input
-                                className={`${!isValid.email ? 'bg-red-100 border-red-500  focus:border-red-500 border-2 shadow-md' : 'border-2 border-transparent bg-gray-100 focus:bg-white shadow-md'}`}
+                                className={`${!isValid.email ? 'bg-red-100 border-red-500  focus:border-red-500 border-2 shadow-md' : 'border-2 border-transparent bg-gray-100 focus:bg-white shadow-md focus:border-blue-500'}`}
                                 type='email'
                                 placeholder='Email'
                                 name='email'
@@ -208,7 +208,7 @@ const ContactData = () => {
                         <div className='wrapper flex flex-col items-start mb-2'>
                             <label htmlFor='Address'>Address</label>
                             <input
-                                className={`${!isValid.address ? 'bg-red-100 border-red-500  focus:border-red-500 border-2 shadow-md' : 'border-2 border-transparent bg-gray-100 focus:bg-white shadow-md'}`}
+                                className={`${!isValid.address ? 'bg-red-100 border-red-500  focus:border-red-500 border-2 shadow-md' : 'border-2 border-transparent bg-gray-100 focus:bg-white shadow-md focus:border-blue-500'}`}
                                 type='text'
                                 placeholder='Address Line 1'
                                 name='address'
@@ -220,7 +220,7 @@ const ContactData = () => {
                         <div className='wrapper flex flex-col items-start mb-2 '>
                             <label htmlFor='AddressLine2'>Adress Line 2</label>
                             <input
-                                className='bg-gray-100 focus:bg-white border-2 border-transparent shadow-md '
+                                className='bg-gray-100 focus:bg-white border-2 border-transparent shadow-md focus:border-blue-500'
                                 type='text'
                                 placeholder='Address Line 2'
                                 name='address2'

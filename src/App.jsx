@@ -13,6 +13,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authStateChange } from './authStateChange';
 import AdminOrders from './components/Orders/adminOrders/AdminOrders';
 import { getOrderNumber } from './redux-slices/orders-slice';
+import ProductPage from './components/ProductPage/ProductPage';
+import Pods from './components/Products/Pods';
 
 
 
@@ -33,9 +35,11 @@ const App = () => {
 
     if (isAdmin) {
         orders = (<AdminOrders /> );
+    } else {
+        orders = (<MyOrders /> );
     }
 
-
+    console.log(isAdmin)
 
 
     return (
@@ -45,8 +49,10 @@ const App = () => {
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/checkout' element={<Checkout />} />
                 <Route path='/flavors' element={<Flavors />} />
+                <Route path='/pods' element={<Pods />} />
                 <Route path='/sign-in' element={<SignIn />} />
                 <Route path='/sign-up' element={<SignUp />} />
+                <Route path='/product/:id' element={<ProductPage />} />
                 <Route path='/my-orders' element={<ProtectedRoute> {orders} </ProtectedRoute>}/>
             </Routes>
         </>

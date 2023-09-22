@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import OrderDetails from './OrderDetails';
 
-const MobileAdminOrder = ({ orderId, name, email, phone,  products, totalPrice, deliveryStatus, address }) => {
+const MobileAdminOrder = ({orderId, name, email, phone,  products, totalPrice, deliveryStatus, address }) => {
 
 
 

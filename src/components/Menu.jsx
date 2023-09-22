@@ -26,22 +26,24 @@ const Menu = ({closeMN}) => {
 
   return (
     <>
-    
-        <ul className='flex-1 flex justify-center items-center gap-10 max-lg:flex-col '>
+        
+        <ul key={'jsdfgklsdjfklgj'} className='flex-1 flex justify-center items-center gap-10 max-lg:flex-col '>
           {navLinks.map((item) => {
             if (item.label === 'Products') {
               return (
-                <>
+            
                 
-                  <li key={item.label} className=' cursor-pointer relative z-20' onClick={() => setShowSubMenu(!showSubMenu)}>
+                  <li key={Math.random()} className=' cursor-pointer relative z-20' onClick={() => setShowSubMenu(!showSubMenu)}>
                   {showSubMenu ? (<div key={'asdasd234234324s2'} className={"bg-white shadow-md border-black/25 border absolute w-32 h-auto top-8 z-20 p-5 rounded-xl transition-all "}>
+                    <ul key={Math.random()}>
                     {item.subMenu.map((item) => {
                       return (
-                        <li>
+                        <li key={Math.random()}>
                           <Link className=' font-montserrat leading-normal text-lg text-slate-gray flex items-center ' to={item.to}>{item.label}</Link>
                         </li>
                       )
                     })}
+                    </ul>
                   </div>) : null}
                       <Link
                           to={item.href}
@@ -51,13 +53,13 @@ const Menu = ({closeMN}) => {
                       </Link>
                       
                   </li>
-                </>
+      
                 
               );
             } else {
                 if (item.href) {
                     return (
-                <li key={item.label} onClick={closeMN}>
+                <li key={Math.random()} onClick={closeMN}>
               <a
                 
                 href={item.href}
@@ -70,7 +72,7 @@ const Menu = ({closeMN}) => {
               )
                 } else {
                     return (
-                <li key={item.label} onClick={closeMN}>
+                <li key={Math.random()} onClick={closeMN}>
               <Link
                 
                 to={item.to}
@@ -89,7 +91,7 @@ const Menu = ({closeMN}) => {
           })}
 
           {
-            isUser ? <li className='flex gap-2 leading-normal font-medium font-montserrat  wide:mr-24' >
+            isUser ? <li key={Math.random()} className='flex gap-2 leading-normal font-medium font-montserrat  wide:mr-24' >
           <a className='cursor-pointer' onClick={logoutHandler}>Log out</a> </li> : (
                 <li className='flex gap-2 leading-normal font-medium font-montserrat  wide:mr-24' >
           <Link to='/sign-in'>Sign in</Link>

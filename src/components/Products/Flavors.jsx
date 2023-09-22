@@ -54,6 +54,7 @@ const Flavors = () => {
                             key={product.title}
                             {...product}
                             clickHandler={() => clickHandler(product)}
+                            product={product}
                         />
                     ))}
                 </div>

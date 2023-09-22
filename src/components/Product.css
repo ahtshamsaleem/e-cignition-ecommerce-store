@@ -12,8 +12,6 @@
 
 
 
-
-
 .custom-outer:hover .custom-inner {
     transform: translateX(0);
     opacity: 1;
