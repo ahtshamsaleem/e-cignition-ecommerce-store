@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setQuantity, totalPrice, calculatePrice } from "../../redux-slices/cart-slice";
+import { setQuantity, totalPrice, calculatePrice, deleteFromCart } from "../../redux-slices/cart-slice";
 import {products} from '../../constants'
+import { RiDeleteBin5Line } from 'react-icons/ri'
 
 const CartItem = ({imgURL, title, price, description, quantity, indexId, id }) => {
 
@@ -34,8 +35,24 @@ const CartItem = ({imgURL, title, price, description, quantity, indexId, id }) =
     }, [price])
 
 
+
+
+    const deleteHandler = () => {
+        dispatch(deleteFromCart(indexId));
+        dispatch(totalPrice())
+
+
+    }
+
+
+
+
+
+
+
     return (
-        <div className=' rounded-md w-full h-16 bg-slate-100 flex justify-between  items-center px-10 py-4 mb-8 shadow-md max-md:px-6 max-md:text-sm'>
+        <>
+             <div className=' rounded-md w-full h-16 bg-slate-100 flex justify-between  items-center px-6 py-4 mb-8 shadow-md max-md:px-3 max-md:text-sm'>
             <div className="flex justify-between items-center ">
                 <div className="mr-2">
                     <img src={imgURL} width={50} height={50} />
@@ -59,10 +76,15 @@ const CartItem = ({imgURL, title, price, description, quantity, indexId, id }) =
                     />
                 </div>
                 <div className="flex flex-row">
-                    <h2 className="flex flex-row flex-nowrap whitespace-nowrap">Rs. {price} </h2>
+                    <h2 className="flex flex-row font-semibold flex-nowrap whitespace-nowrap">Rs. {price} </h2>
                 </div>
             </div>
+            
+        <RiDeleteBin5Line className="w-[10%] self-center translate-x-5 scale-150 max-md:scale-[1.3] max-md:translate-x-2  text-red-700 cursor-pointer "  onClick={deleteHandler}/>
         </div>
+        {/* <button className="p-4 bg-red-500 inline-block " onClick={deleteHandler}>Delete</button> */}
+        </>
+       
     );
 };
 

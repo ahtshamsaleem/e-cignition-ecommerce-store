@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { addToCart, calculatePrice } from "../../redux-slices/cart-slice";
 import AtcBtn from "./atcBtn/AtcBtn";
 import Backdrop from "../UI/Backdrop";
+import { ToastContainer } from "react-toastify";
 
 const ProductDetails = ({ product, closeHandler }) => {
     const dispatch = useDispatch();
@@ -19,7 +20,8 @@ const ProductDetails = ({ product, closeHandler }) => {
 
 
     return (
-        <>
+        <>  
+           {/* (<ToastContainer  />) */}
             <Backdrop />
             <div className="w-[100vw] h-[100vh] fixed z-50 flex justify-center items-center top-0 left-0 max-md:flex-col">
                 <div className='ProductDetails bg-white/[0.8] backdrop-blur-xl rounded-xl h-auto w-auto p-4 relative'>

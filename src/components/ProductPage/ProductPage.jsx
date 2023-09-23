@@ -38,9 +38,9 @@ const imageSelectHandlerOuter = (s) => {
     return (
         <>
             <Header />
-            <section className='w-full h-full  mt-28 flex justify-around max-lg:flex-col p-20'>
-                <div className='w-[50%] flex justify-center '>
-                    <div className='w-[500px] h-[500px] p-8 relative  '>
+            <section className='w-full h-full  mt-28 flex justify-around max-lg:flex-col lg:p-20 items-center '>
+                <div className='lg:w-[50%] flex justify-center mb-16'>
+                    <div className='lg:w-[500px]   p-8 relative border-black'>
                         <img
                             src={selectedImage}
                             className='object-contain '
@@ -59,7 +59,7 @@ const imageSelectHandlerOuter = (s) => {
                     </div>
                     </div>
                 </div>
-                <div className='p-10 w-[50%] '>
+                <div className='p-10 lg:w-[50%] '>
                     <h2 className='text-4xl font-bold p-2 '>
                         {resArr[0].title}
                     </h2>

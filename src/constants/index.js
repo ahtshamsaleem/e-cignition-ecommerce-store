@@ -5,7 +5,7 @@ import { flv1, flv2, flv3, flv4, flv5, flv6, flv7, flv8 } from '../assets/img/fl
 import { pod0, pod1, pod2, pod3, pod4, pod5, gk1, gk2, gk3 } from "../assets/img/pods";
 
 export const navLinks = [
-    { href: "/", label: "Home" },
+    { to: "/", label: "Home" },
     {
        
         label: "Products",
@@ -15,8 +15,8 @@ export const navLinks = [
             { to: "/flavors", label: "Flavors" },
         ],
     },
-    { href: "#contact-us", label: "Contact Us" },
-    { href: "#about-us", label: "About Us" },
+    { href: "/#contact-us", label: "Contact Us" },
+    { href: "/#about-us", label: "About Us" },
     {to: '/my-orders', label: 'My Orders'}
 ];
 
@@ -308,15 +308,21 @@ export const services = [
 export const reviews = [
     {
         imgURL: customer1,
-        customerName: 'Morich Brown',
-        rating: 4.5,
-        feedback: "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!"
+        customerName: 'Hasnain Aslam',
+        rating: 4.4,
+        feedback: "The pod kit and the flavors are amazing. Highly recommended!"
     },
     {
         imgURL: customer2,
-        customerName: 'Lota Mongeskar',
+        customerName: 'Shoaib Malik',
         rating: 4.5,
         feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
+    },
+    {
+        imgURL: customer2,
+        customerName: 'Zia Ur Rahman',
+        rating: 4.5,
+        feedback: "I'm in love with their products. Their customer service experience is also great!"
     }
 ];
 

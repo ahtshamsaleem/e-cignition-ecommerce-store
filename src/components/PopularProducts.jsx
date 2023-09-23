@@ -3,6 +3,7 @@ import { PopularProductCard } from '.';
 import { useState } from 'react';
 import ProductDetails from './productDetails/ProductDetails';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 import { addToCart, calculatePrice } from '../redux-slices/cart-slice';
 
 const PopularProducts = () => {
@@ -13,8 +14,17 @@ const PopularProducts = () => {
         price: '$200.20',
     });
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const clickHandler = (product) => {
+        if (document.body.clientWidth < 1000) {
+            navigate(`/product/${product.title}`);
+            
+        }
+
+
+
+
         setDetailsProduct(() => {
             return product;
         });

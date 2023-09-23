@@ -5,16 +5,19 @@ import ProductDetails from './productDetails/ProductDetails'
 import PopularProducts from './PopularProducts'
 
 
+
+
 const Home = () => {
+    
+
     
 
 
 
 
-
-
-
   return (
+
+
         <main className='relative '>
         <Header />
         <section className='xl:padding-l wide:padding-r padding-b'>
@@ -42,7 +45,7 @@ const Home = () => {
           <Footer />
         </section>
 
-
+        
         
       </main>
   )

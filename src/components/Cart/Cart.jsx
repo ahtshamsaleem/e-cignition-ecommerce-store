@@ -20,7 +20,7 @@ const Cart = ({ children }) => {
             <Header />
                 <div className='w-[100vw]  h-full overflow-hidden bg-gradient-to-r from-[#c1dfc4] to-[#deecdd]'>
                 <div className={`h-auto flex flex-row justify-center items-center py-10  overflow-y-auto  `}>
-                    <div className='w-[50%] h-auto flex flex-col justify-center items-center mt-10 max-md:w-[90vw]  '>
+                    <div className='w-[60%] h-auto flex flex-col justify-center items-center mt-10 max-md:w-[95vw]  '>
                         <div className=''>
                             <CartItems />
                         </div>

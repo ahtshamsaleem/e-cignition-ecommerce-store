@@ -4,6 +4,8 @@ import { Heroproducts, statistics } from '../constants';
 import { Button, ShoeCard } from '../components';
 import { img1 } from '../assets/img';
 import { arrowRight } from '../assets/icons';
+import { Typewriter } from 'react-simple-typewriter'
+
 
 const Hero = () => {
     const [bigHeroImage, setBigHeroImage] = useState(img1);
@@ -27,7 +29,15 @@ const Hero = () => {
                     </span>
                     <br />
                     <span className={`inline-block mt-3 ${'text-slate-800'}`}>
-                        Gunmetal
+                        G<Typewriter 
+                            words={['unmetal', 'ene Fan 2.0']}
+                            typeSpeed={90}
+                            deleteSpeed={90}
+                            loop={3}
+                            
+                            
+
+                        />
                     </span>{' '}
                     
                 </h1>

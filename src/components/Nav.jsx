@@ -1,11 +1,11 @@
 import { hamburger } from '../assets/icons';
-import { headerLogo } from '../assets/images';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CgShoppingCart } from 'react-icons/cg';
 import { useSelector } from 'react-redux';
 import Menu from './Menu';
 import MobileNav from './MobileNav';
+import logo from '../assets/Ec.png'
 
 
 const Nav = () => {
@@ -36,15 +36,15 @@ const Nav = () => {
                 </div>
 
                 <div>
-                    <a href='/'>
+                    <Link to='/'>
                         <img
-                            src={headerLogo}
+                            src={logo}
                             alt='logo'
-                            width={129}
-                            height={29}
-                            className='m-0 w-[129px] h-[29px]'
+                            width={'150px'}
+                            
+                            className='m-0 '
                         />
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="max-lg:hidden">
