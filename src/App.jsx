@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Home } from './components';
 import { Routes, Route } from 'react-router-dom';
 import Cart from './components/Cart/Cart';
@@ -7,17 +8,17 @@ import SignIn from './components/Auth/SignIn/SignIn';
 import SignUp from './components/Auth/SignUp/SignUp';
 import MyOrders from './components/Orders/myOrders/MyOrders';
 import ProtectedRoute from './ProtectedRoute';
-import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { authStateChange } from './authStateChange';
 import AdminOrders from './components/Orders/adminOrders/AdminOrders';
-import { getOrderNumber } from './redux-slices/orders-slice';
 import ProductPage from './components/ProductPage/ProductPage';
 import Pods from './components/Products/Pods';
 import { addToCart, calculatePrice } from './redux-slices/cart-slice';
-
+import { ToastContainer } from 'react-toastify'
 import { products } from './constants';
+import { getCartDataDB } from './Utility/getCartDataDB';
+import { initDB } from './components/indexedDB';
 
 
 
@@ -26,7 +27,7 @@ const App = () => {
     const dispatch = useDispatch();
     useEffect(() => {
 
-       console.log('app mounted')
+      getCartDataDB(initDB, dispatch, addToCart, calculatePrice, products);
 
         
                     
@@ -52,6 +53,7 @@ const App = () => {
 
     return (
         <>
+            <ToastContainer />
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/cart' element={<Cart />} />

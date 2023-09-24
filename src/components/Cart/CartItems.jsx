@@ -23,15 +23,7 @@ const CartItems = () => {
                             console.log(item.id, index)
                             return (
                                 <li key={index} className='flex'>
-                                    <CartItem
-                                        id={item.id}
-                                        indexId={index}
-                                        imgURL={item.imgURL}
-                                        title={item.title}
-                                        price={item.price}
-                                        description={item.description}
-                                        quantity={item.quantity}
-                                    />
+                                    <CartItem id={item.id} indexId={index} imgURL={item.imgURL} title={item.title} price={item.price} description={item.description} quantity={item.quantity} />
                                     
                                 </li>
                                 

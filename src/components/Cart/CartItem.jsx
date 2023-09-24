@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setQuantity, totalPrice, calculatePrice, deleteFromCart } from "../../redux-slices/cart-slice";
 import {products} from '../../constants'
 import { RiDeleteBin5Line } from 'react-icons/ri'
+import { initDB } from "../indexedDB";
 
 const CartItem = ({imgURL, title, price, description, quantity, indexId, id }) => {
 
@@ -19,16 +20,7 @@ const CartItem = ({imgURL, title, price, description, quantity, indexId, id }) =
 
     useEffect(() => {
 
-        // const initialPriceObj = products.filter((item, index) => {
-        //     return id === index;
-        // })
-
-        //  initialPrice = initialPriceObj[0].price;
-        // console.log(initialPriceObj)
-        // console.log(initialPrice)
-
-
-
+       
 
 
         dispatch(totalPrice())
@@ -37,9 +29,108 @@ const CartItem = ({imgURL, title, price, description, quantity, indexId, id }) =
 
 
 
+
+
+
+
+
+    let resArr = []
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     const deleteHandler = () => {
         dispatch(deleteFromCart(indexId));
         dispatch(totalPrice())
+
+
+
+
+
+        initDB().then((db) => {
+            const transaction = db.transaction('products', 'readwrite');
+            const objectStore = transaction.objectStore('products');
+            const request = objectStore.get('p1');
+            
+            request.onsuccess = (event) => {
+               
+                const cartArray = request.result.cart;
+    
+                    
+                
+                
+    
+                
+                    const res = cartArray.filter((item) => {
+                        return id !== item;
+                    })
+    
+                   resArr = res;
+                   objectStore.put({cd: 'p1', cart: res});
+                    
+                    
+    
+    
+    
+                
+                
+    
+    
+                
+    
+            };
+        })
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

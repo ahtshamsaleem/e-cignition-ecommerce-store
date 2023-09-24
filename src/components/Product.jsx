@@ -11,7 +11,7 @@ import { initDB } from './indexedDB';
 
 
 
-const idArray = [];
+let idArray = [];
 
 
 const Product = ({ imgURL, title, price, description, clickHandler, bgGradient, product,   }) => {
@@ -104,11 +104,28 @@ const Product = ({ imgURL, title, price, description, clickHandler, bgGradient, 
 
 
             initDB().then((db) => {
-                idArray.push(product.id)
+                
 
             const productStore =  db.transaction('products', 'readwrite').objectStore('products');
-          
-            productStore.put({cd:'p1', cart: idArray});
+                const req = productStore.get('p1');
+                req.onsuccess = (event) => {
+                   console.log(event)
+                   if (event.target.result?.cart) {
+                    idArray = event.target.result.cart;
+                   }
+                   console.log(idArray)
+                //    if (req.result.cart !== undefined) {
+                //     idArray = req.result.cart
+                //    }
+
+                idArray.push(product.id);
+                productStore.put({cd:'p1', cart: idArray});
+                    
+                }
+
+                
+            
+            
 
             })
 

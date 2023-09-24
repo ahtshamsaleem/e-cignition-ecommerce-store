@@ -9,6 +9,7 @@ import { auth } from '../../../firebase';
 import Spinner from '../../UI/Spinner';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { AiOutlineEyeInvisible, AiOutlineEye} from 'react-icons/ai'
+import { Footer } from '../../../sections';
 
 const SignIn = () => {
 
@@ -134,8 +135,8 @@ const SignIn = () => {
         <>  
             {isLoading && <div className='fixed w-[100vw] h-[100vh] z-[200] flex justify-center items-center bg-gray-600/[0.1] backdrop-blur-[2px] '><div className='text-red-400 '><Spinner /></div> </div>}
             <Header />
-            <section className=' w-full mt-[80px] py-28 px-28 xl:px-64 bg-gray-200 from-orange-500 to-rose-400 max-lg:p-8'>
-                <div className='flex flex-row justify-center items-center bg-white rounded-xl overflow-hidden shadow-lg '>
+            <section className=' w-full  py-32 px-28 xl:px-64 bg-gradient-to-r from-[#c1dfc4] to-[#deecdd] max-lg:px-8 max-lg:py-24'>
+                <div className='flex flex-row justify-center items-center bg-white  rounded-xl overflow-hidden shadow-lg '>
                     <div className=' shadow-black shadow-md w-[44%] bg-center bg-[url(/src/assets/img/cart/4.jpg)] h-[500px] max-lg:h-[600px] bg-cover max-md:hidden relative' >
                         <span className='flex w-full h-full  bg-gradient-to-b  from-black/[0.3] via-transparent to-black/[0.3] '></span>
                     </div>
@@ -209,6 +210,10 @@ const SignIn = () => {
                     </div>
                
             </section>
+
+            <section className=' bg-black padding-x padding-t pb-8'>
+          <Footer />
+        </section>
         </>
     );
 };

@@ -16,7 +16,7 @@ const SpecialOffer = () => {
       </div>
       <div className='flex flex-1 flex-col justify-start '>
         <h2 className='text-4xl font-palanquin font-bold'>
-          <span className='text-green-500'>Unique </span>
+          <span className='text-blue-900'>Unique </span>
           Selling Features
         </h2>
         <p className='mt-4 info-text '>
@@ -35,7 +35,7 @@ const SpecialOffer = () => {
 
         </p>
         <div className='mt-11 flex flex-wrap gap-4 '>
-          <Button label='Shop now' iconURL={arrowRight} backgroundColor='bg-green-500' textColor='text-white'/>
+          <Button label='Shop now' iconURL={arrowRight} backgroundColor='bg-blue-900' textColor='text-white'/>
           {/* <Button
             label='Learn more'
             backgroundColor='bg-white'
