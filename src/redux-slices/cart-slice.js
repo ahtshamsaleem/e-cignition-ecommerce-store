@@ -95,7 +95,7 @@ let cartSlice = createSlice({
                     return item.id === id;
                 });
 
-                if (state.products[resultIndex].quantity >= 5) {
+                if (state.products[resultIndex].quantity >= 5 || action.payload.indexDb) {
                     return;
                 }
 
@@ -111,6 +111,7 @@ let cartSlice = createSlice({
         emptyTheCart: (state) => {
             
             state.products = [];
+            
         }
 
     },

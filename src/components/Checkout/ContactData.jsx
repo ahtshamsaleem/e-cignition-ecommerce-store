@@ -10,6 +10,7 @@ import Spinner from '../UI/Spinner';
 
 import { useNavigate } from 'react-router-dom';
 import OrderedModal from './OrderedModal';
+import { initDB } from '../indexedDB';
 
 const ContactData = () => {
     const navigate = useNavigate();
@@ -146,6 +147,8 @@ const ContactData = () => {
         dispatch(createOrder(order));
         dispatch(punchOrderNumber())
         setOrderModal(true);
+
+        clearIndexDbHandler()
         
 
         
@@ -155,6 +158,23 @@ const ContactData = () => {
     useEffect(() => {
         dispatch(getOrderNumber());
     }, [])
+
+
+
+    const clearIndexDbHandler = () => {
+        initDB().then((db) => {
+            const transaction = db.transaction('products', 'readwrite');
+                const objectStore = transaction.objectStore('products');
+                const request = objectStore.delete('p1');
+
+                request.onsucces = () => {
+                    console.log('index deleted DB')
+                }
+        })
+    }
+
+
+
 
 
     return (

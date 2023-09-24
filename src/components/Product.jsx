@@ -7,7 +7,9 @@ import { setIsToast } from "../redux-slices/ui-slice";
 import './Product.css'
 import { toast } from 'react-toastify'
 import { useState } from "react";
-import {db} from './indexedDB';
+import { initDB } from './indexedDB';
+
+
 
 const idArray = [];
 
@@ -101,12 +103,14 @@ const Product = ({ imgURL, title, price, description, clickHandler, bgGradient, 
 
 
 
-            idArray.push(product.id)
+            initDB().then((db) => {
+                idArray.push(product.id)
 
             const productStore =  db.transaction('products', 'readwrite').objectStore('products');
           
             productStore.put({cd:'p1', cart: idArray});
 
+            })
 
 
 

@@ -15,6 +15,9 @@ import AdminOrders from './components/Orders/adminOrders/AdminOrders';
 import { getOrderNumber } from './redux-slices/orders-slice';
 import ProductPage from './components/ProductPage/ProductPage';
 import Pods from './components/Products/Pods';
+import { addToCart, calculatePrice } from './redux-slices/cart-slice';
+
+import { products } from './constants';
 
 
 
@@ -23,7 +26,11 @@ const App = () => {
     const dispatch = useDispatch();
     useEffect(() => {
 
-       
+       console.log('app mounted')
+
+        
+                    
+ 
 
         const unsub = authStateChange(dispatch);
 
