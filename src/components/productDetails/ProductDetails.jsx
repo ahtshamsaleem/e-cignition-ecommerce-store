@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { addToCart, calculatePrice } from "../../redux-slices/cart-slice";
 import AtcBtn from "./atcBtn/AtcBtn";
 import Backdrop from "../UI/Backdrop";
-import { ToastContainer } from "react-toastify";
+
 
 const ProductDetails = ({ product, closeHandler }) => {
     const dispatch = useDispatch();

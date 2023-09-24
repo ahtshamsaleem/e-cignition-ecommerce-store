@@ -3,7 +3,14 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { star } from "../assets/icons";
 import { addToCart, calculatePrice } from "../redux-slices/cart-slice";
+import { setIsToast } from "../redux-slices/ui-slice";
 import './Product.css'
+import { toast } from 'react-toastify'
+import { useState } from "react";
+import {db} from './indexedDB';
+
+const idArray = [];
+
 
 const Product = ({ imgURL, title, price, description, clickHandler, bgGradient, product,   }) => {
  
@@ -16,15 +23,109 @@ const Product = ({ imgURL, title, price, description, clickHandler, bgGradient, 
         console.log(product);
         navigate(`/product/${product.title}`)
 
-
-
     }
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     const addToCartBtnHandler = (e) => {
         e.stopPropagation();
         dispatch(addToCart({product:product}));
         dispatch(calculatePrice({id:product.id}));
+
+        toast.success('Added to cart!', {
+            position: "top-left",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+
+
+
+
+            idArray.push(product.id)
+
+            const productStore =  db.transaction('products', 'readwrite').objectStore('products');
+          
+            productStore.put({cd:'p1', cart: idArray});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 

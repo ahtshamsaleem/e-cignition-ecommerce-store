@@ -42,6 +42,36 @@ let cartSlice = createSlice({
         },
 
         addToCart: (state, action) => {
+            
+            
+
+            
+
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             let id = action.payload.product.id;
             let result = state.products.find((item, index) => {
                 return item.id === id;
@@ -49,6 +79,17 @@ let cartSlice = createSlice({
 
             if (result === undefined) {
                 state.products.push(action.payload.product);
+
+
+                const newArr = [];
+                state.products.forEach((item) => {
+                    return    newArr.push(item.id);
+                })
+
+
+                // localStorage.setItem('cartItem', newArr);
+
+
             } else {
                 let resultIndex = state.products.findIndex((item, index) => {
                     return item.id === id;

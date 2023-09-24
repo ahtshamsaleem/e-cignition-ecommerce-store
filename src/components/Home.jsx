@@ -3,6 +3,14 @@ import { CustomerReviews, Footer, Hero, Services, SpecialOffer, Subscribe, Super
 import Header from './Header'
 import ProductDetails from './productDetails/ProductDetails'
 import PopularProducts from './PopularProducts'
+import { useDispatch, useSelector } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react'
+import { db } from './indexedDB'
+import { products } from '../constants'
+import { addToCart, calculatePrice } from '../redux-slices/cart-slice'
+import { useLayoutEffect } from 'react'
 
 
 
@@ -10,7 +18,77 @@ import PopularProducts from './PopularProducts'
 const Home = () => {
     
 
+    // const cartArr = products.filter((item) => {
+    //     return item.category === 'pods'
+    // })
+
+
+const dispatch = useDispatch()
+
+
+
+
+
     
+
+    
+    useEffect(() => {
+    
+        console.log('HOme useeffetc moionde')
+        
+                    
+               if (!db) {
+                return 
+               } else {
+                const transaction = db.transaction(['products']);
+                const objectStore = transaction.objectStore('products');
+                const request = objectStore.get('p1');
+                
+                request.onsuccess = (event) => {
+                    // Do something with the request.result!
+                    console.log(
+                        `Name for SSN 444-44-4444 is ${request.result.cart}`
+                    );
+
+                    const cartArray = request.result.cart;
+
+                        
+                    
+                    const resArr = [];
+
+                    cartArray?.forEach((item) => {
+                        const res = products.filter((product) => {
+                            return product.id === item;
+                        })
+        
+                        resArr.push(res[0])
+
+                        dispatch(addToCart({product:res[0]}));
+                        dispatch(calculatePrice({id:res[0].id}));
+
+
+
+
+
+                    })
+                    
+
+
+                     console.log(resArr);
+
+                };
+
+               }
+
+            
+
+               
+
+
+
+
+
+    }, [])
 
 
 
@@ -44,7 +122,8 @@ const Home = () => {
         <section className=' bg-black padding-x padding-t pb-8'>
           <Footer />
         </section>
-
+        
+        { <ToastContainer />}
         
         
       </main>
