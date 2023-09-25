@@ -1,12 +1,12 @@
 import { ReviewCard } from "../components";
 import { reviews } from "../constants";
 
-const CustomerReviews = () => {
+const CustomerReviews = ({txtColor}) => {
   return (
     <section className='max-container'>
       <h3 className='font-palanquin text-center text-4xl font-bold'>
         What Our
-        <span className='text-green-500'> Customers </span>
+        <span className={`${txtColor}`}> Customers </span>
         Say?
       </h3>
       <p className='m-auto mt-4 max-w-lg  text-center info-text'>

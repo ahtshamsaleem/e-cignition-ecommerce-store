@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { products } from '../../constants/index';
 import AtcBtn from '../productDetails/atcBtn/AtcBtn';
@@ -35,11 +35,17 @@ const imageSelectHandlerOuter = (s) => {
 
 
 
+    
+useEffect(() => {
+    window.scrollTo(0,0);
+}, [])
+
+
     return (
         <>
             <Header />
-            <section className='w-full h-full  mt-28 flex justify-around max-lg:flex-col lg:p-20 items-center '>
-                <div className='lg:w-[50%] flex justify-center mb-16'>
+            <section className='w-full h-full   mt-28 flex justify-around max-lg:flex-col lg:p-20 items-center '>
+                <div className='lg:w-[50%] flex justify-center mb-16 '>
                     <div className='lg:w-[500px]   p-8 relative border-black'>
                         <img
                             src={selectedImage}

@@ -1,6 +1,6 @@
 import { Button } from "../components";
 
-const Subscribe = () => {
+const Subscribe = ({bgColor, txtColor, border}) => {
   return (
     <section
       id='contact-us'
@@ -8,12 +8,12 @@ const Subscribe = () => {
     >
       <h3 className='text-4xl leading-[68px] lg:max-w-md font-palanquin font-bold'>
         Sign Up for
-        <span className='text-green-500'> Updates </span>& Newsletter
+        <span className={`${txtColor}`}> Updates </span>& Newsletter
       </h3>
-      <div className='lg:max-w-[40%] w-full flex items-center max-sm:flex-col gap-5 p-2.5 sm:border sm:border-slate-gray rounded-full'>
+      <div className='lg:max-w-[40%]  w-full flex items-center max-md:flex-col gap-5 p-2 md:border md:border-slate-gray rounded-full bg-transparent md:bg-white'>
         <input type='text' placeholder='subscribe@ecignition.com' className='input' />
         <div className='flex max-sm:justify-end items-center max-sm:w-full'>
-          <Button label='Sign Up' fullWidth  backgroundColor='bg-green-500' textColor='text-white'/>
+          <Button label='Sign Up' fullWidth  backgroundColor={bgColor} textColor='text-white' borderColor={border}/>
         </div>
       </div>
     </section>

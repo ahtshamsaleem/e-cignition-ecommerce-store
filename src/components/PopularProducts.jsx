@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { addToCart, calculatePrice } from '../redux-slices/cart-slice';
 
-const PopularProducts = () => {
+const PopularProducts = ({txtColor}) => {
     const [showProdDetails, setShowProdDetails] = useState(false);
     const [detailsProduct, setDetailsProduct] = useState({
         imgURL: 'shoe4',
@@ -57,7 +57,7 @@ const PopularProducts = () => {
                 <div className='flex flex-col gap-2 justify-center items-center'>
                     <div className="flex flex-col">
                     <h2 className='text-4xl font-palanquin font-bold'>
-                        Our <span className='text-coral-red'> Popular </span>{' '}
+                        Our <span className={`${txtColor}`}> Popular </span>{' '}
                         Products
                     </h2>
                     <p className='lg:max-w-lg mt-2 font-montserrat text-slate-gray'>

@@ -8,7 +8,7 @@ import { useDispatch, useSelector} from 'react-redux'
 
 import Spinner from '../UI/Spinner';
 
-import { useNavigate } from 'react-router-dom';
+import { useHref, useNavigate } from 'react-router-dom';
 import OrderedModal from './OrderedModal';
 import { initDB } from '../indexedDB';
 
@@ -47,6 +47,7 @@ const ContactData = () => {
 
 
     const ref = useRef();
+    const form = useRef()
 
 
   const validateInput = (inputName, value) => {
@@ -153,9 +154,13 @@ const ContactData = () => {
 
         
     };
-
+    
 
     useEffect(() => {
+
+        
+        form.current.scrollIntoView(false, {behavior: 'smooth'});
+
         dispatch(getOrderNumber());
     }, [])
 
@@ -183,7 +188,7 @@ const ContactData = () => {
             {orderModal && <OrderedModal products={orderedProducts} />}
             {
                 isLoading ? Spinner : (
-                    <div className='outer w-full mt-5 max-md:w-[90vw] '>
+                    <div className='outer w-full mt-5 max-md:w-[90vw] ' id='contact' ref={form}>
                 <form onSubmit={onSubmitHandler}>
                     <div ref={ref} className='inner w-full flex flex-col p-8 max-md:px-4 max-md:py-8 rounded-lg shadow-black/[0.4] shadow-md  bg-gray-100/[0.2] ' >
                     <div className='wrapper xwidth flex flex-col items-start mb-2 '>

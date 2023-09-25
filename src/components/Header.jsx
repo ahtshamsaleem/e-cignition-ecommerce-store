@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
         <header className={glassHeader} ref={ref}>
-                <Nav />
+                <Nav/>
         </header>
   )
 }

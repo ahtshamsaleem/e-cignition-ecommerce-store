@@ -33,13 +33,13 @@ const Menu = ({closeMN}) => {
               return (
             
                 
-                  <li key={Math.random()} className=' cursor-pointer relative z-20' onClick={() => setShowSubMenu(!showSubMenu)}>
+                  <li key={Math.random()} className='text-black/[0.8] font-semibold cursor-pointer relative z-20' onClick={() => setShowSubMenu(!showSubMenu)}>
                   {showSubMenu ? (<div key={'asdasd234234324s2'} className={"bg-white shadow-md border-black/25 border absolute w-32 h-auto top-8 z-20 p-5 rounded-xl transition-all "}>
                     <ul key={Math.random()}>
                     {item.subMenu.map((item) => {
                       return (
                         <li key={Math.random()}>
-                          <Link className=' font-montserrat leading-normal text-lg text-slate-gray flex items-center ' to={item.to}>{item.label}</Link>
+                          <Link className=' font-montserrat leading-normal text-lg text-black/[0.8] flex items-center ' to={item.to}>{item.label}</Link>
                         </li>
                       )
                     })}
@@ -47,7 +47,7 @@ const Menu = ({closeMN}) => {
                   </div>) : null}
                       <Link
                           to={item.href}
-                          className=' font-montserrat leading-normal text-lg text-slate-gray flex items-center'
+                          className=' font-montserrat leading-normal text-lg text-black/[0.8] flex items-center'
                       >
                           {item.label} <IoIosArrowDown className="mx-2"/>
                       </Link>
@@ -64,7 +64,7 @@ const Menu = ({closeMN}) => {
                 
                 href={item.href}
                 
-                className='font-montserrat leading-normal text-lg text-slate-gray'
+                className='font-montserrat leading-normal text-lg text-black/[0.8] font-semibold'
               >
                 {item.label}
               </a>
@@ -74,10 +74,12 @@ const Menu = ({closeMN}) => {
                     return (
                 <li key={Math.random()} onClick={closeMN}>
               <Link
-                
+                onClick={() => {
+                    window.scrollTo(0,0)
+                }}
                 to={item.to}
                 
-                className='font-montserrat leading-normal text-lg text-slate-gray'
+                className='font-montserrat leading-normal text-lg text-black/[0.8] font-semibold'
               >
                 {item.label}
               </Link>

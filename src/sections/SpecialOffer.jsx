@@ -3,7 +3,7 @@ import { offer } from "../assets/images";
 import img from '../assets/section/2.png'
 import { Button } from "../components";
 
-const SpecialOffer = () => {
+const SpecialOffer = ({bgColor, txtColor, border}) => {
   return (
     <section className=' flex justify-between items-start max-xl:flex-col-reverse gap-10 max-container'>
       <div className='flex-1 '>
@@ -16,7 +16,7 @@ const SpecialOffer = () => {
       </div>
       <div className='flex flex-1 flex-col justify-start '>
         <h2 className='text-4xl font-palanquin font-bold'>
-          <span className='text-blue-900'>Unique </span>
+          <span className={`${txtColor}`}>Unique </span>
           Selling Features
         </h2>
         <p className='mt-4 info-text '>
@@ -35,7 +35,7 @@ const SpecialOffer = () => {
 
         </p>
         <div className='mt-11 flex flex-wrap gap-4 '>
-          <Button label='Shop now' iconURL={arrowRight} backgroundColor='bg-blue-900' textColor='text-white'/>
+          <Button label='Shop now' iconURL={arrowRight} backgroundColor={bgColor} textColor='text-white' borderColor={border}/>
           {/* <Button
             label='Learn more'
             backgroundColor='bg-white'

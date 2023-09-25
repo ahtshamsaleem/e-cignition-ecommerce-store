@@ -19,6 +19,7 @@ const Nav = () => {
     }
 
 
+    const  logo = useSelector(state=> state.ui.uiColor.logo);
 
 
     return (

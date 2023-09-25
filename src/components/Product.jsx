@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { star } from "../assets/icons";
 import { addToCart, calculatePrice } from "../redux-slices/cart-slice";
-import { setIsToast } from "../redux-slices/ui-slice";
+
 import './Product.css'
 import { toast } from 'react-toastify'
-import { useState } from "react";
+
 import { initDB } from './indexedDB';
 
 
@@ -26,8 +26,6 @@ const Product = ({ imgURL, title, price, description, clickHandler, bgGradient, 
         navigate(`/product/${product.title}`)
 
     }
-
-
 
 
 

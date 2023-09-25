@@ -1,4 +1,4 @@
-const ShoeCard = ({ img, changeBigHeroImage, bigHeroImg, setHeroClr, id, setBgBtnClr, setHeadingClr }) => {
+const ShoeCard = ({ img, changeBigHeroImage, bigHeroImg, setHeroClr, id, setBgBtnClr, setHeadingClr,  change2Green,  change2Blue,  change2Orange }) => {
 
 
     const changeClrFunc = () => {
@@ -9,27 +9,24 @@ const ShoeCard = ({ img, changeBigHeroImage, bigHeroImg, setHeroClr, id, setBgBt
 
         switch (id) {
             case 'h1':
-                clrWillBe = 'text-green-500'
-                bgClrWillBe = 'bg-green-500';
-                HeadingClr = 'text-transparent bg-clip-text bg-gradient-to-r to-green-500 from-slate-800';
+                change2Green();
+                
                 break;
             case 'h2':
-                clrWillBe = 'text-blue-500';
-                bgClrWillBe = 'bg-blue-500';
-                HeadingClr = 'text-transparent bg-clip-text bg-gradient-to-r to-blue-500 from-slate-800';
+                change2Blue()
+                
                 break
             case 'h3':
-                clrWillBe = 'text-orange-500';
-                bgClrWillBe = 'bg-orange-500';
-                HeadingClr = 'text-transparent bg-clip-text bg-gradient-to-r to-orange-500 from-slate-800';
+                change2Orange()
+                
                 break
             default:
                 break;
         }
 
-        setHeroClr(clrWillBe);
-        setBgBtnClr(bgClrWillBe);
-        setHeadingClr(HeadingClr);
+        // setHeroClr(clrWillBe);
+        // setBgBtnClr(bgClrWillBe);
+        // setHeadingClr(HeadingClr);
 
     }
 
@@ -41,7 +38,7 @@ const ShoeCard = ({ img, changeBigHeroImage, bigHeroImg, setHeroClr, id, setBgBt
 
     const handleClick = () => {
         changeClrFunc()
-        changeBigHeroImage(img);
+        // changeBigHeroImage(img);
     };
 
     return (
@@ -51,10 +48,10 @@ const ShoeCard = ({ img, changeBigHeroImage, bigHeroImg, setHeroClr, id, setBgBt
             } cursor-pointer max-sm:flex-1`}
             onClick={handleClick}
         >
-            <div className='flex justify-center items-center bg-card bg-center bg-cover sm:w-40 sm:h-40 rounded-xl max-sm:p-4'>
+            <div className='flex justify-center items-center bg-card bg-center bg-cover sm:w-28 sm:h-28 rounded-xl max-sm:p-4'>
                 <img
                     src={img}
-                    alt='shoe colletion'
+                    alt='pods collection'
                     width={127}
                     height={103.34}
                     className='object-contain'

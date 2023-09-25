@@ -16,6 +16,7 @@ import ProductPage from './components/ProductPage/ProductPage';
 import Pods from './components/Products/Pods';
 import { addToCart, calculatePrice } from './redux-slices/cart-slice';
 import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import { products } from './constants';
 import { getCartDataDB } from './Utility/getCartDataDB';
 import { initDB } from './components/indexedDB';
@@ -26,7 +27,7 @@ import { initDB } from './components/indexedDB';
 const App = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-
+        
       getCartDataDB(initDB, dispatch, addToCart, calculatePrice, products);
 
         

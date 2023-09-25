@@ -22,8 +22,8 @@ const CartItem = ({imgURL, title, price, description, quantity, indexId, id }) =
 
        
 
-
-        dispatch(totalPrice())
+        window.scrollTo(0,0);
+        dispatch(totalPrice());
     }, [price])
 
 

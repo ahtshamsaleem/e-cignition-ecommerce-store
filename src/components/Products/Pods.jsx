@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { products } from '../../constants';
 import { Footer } from '../../sections';
 import Header from '../Header';
@@ -10,9 +11,17 @@ import ProductDetails from '../productDetails/ProductDetails';
 const Pods = () => {
     const [showProdDetails, setShowProdDetails] = useState(false);
     const [detailsProduct, setDetailsProduct] = useState({});
-    
+    const  navigate  = useNavigate()
 
     const clickHandler = (product) => {
+
+        if (document.body.clientWidth < 1000) {
+            navigate(`/product/${product.title}`);
+            
+        }
+
+
+
         setDetailsProduct(() => {
             return product;
         });
