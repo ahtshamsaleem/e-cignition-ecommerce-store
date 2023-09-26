@@ -15,42 +15,29 @@ import AdminOrders from './components/Orders/adminOrders/AdminOrders';
 import ProductPage from './components/ProductPage/ProductPage';
 import Pods from './components/Products/Pods';
 import { addToCart, calculatePrice } from './redux-slices/cart-slice';
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { products } from './constants';
 import { getCartDataDB } from './Utility/getCartDataDB';
 import { initDB } from './components/indexedDB';
 
-
-
-
 const App = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        
-      getCartDataDB(initDB, dispatch, addToCart, calculatePrice, products);
-
-        
-                    
- 
-
+        getCartDataDB(initDB, dispatch, addToCart, calculatePrice, products);
         const unsub = authStateChange(dispatch);
 
         return unsub;
     }, []);
 
-
-    const isAdmin = useSelector( state => state.auth.isAdmin);
-    let orders = (<MyOrders /> );
+    const isAdmin = useSelector((state) => state.auth.isAdmin);
+    let orders = <MyOrders />;
 
     if (isAdmin) {
-        orders = (<AdminOrders /> );
+        orders = <AdminOrders />;
     } else {
-        orders = (<MyOrders /> );
+        orders = <MyOrders />;
     }
-
-    console.log(isAdmin)
-
 
     return (
         <>
@@ -64,7 +51,7 @@ const App = () => {
                 <Route path='/sign-in' element={<SignIn />} />
                 <Route path='/sign-up' element={<SignUp />} />
                 <Route path='/product/:id' element={<ProductPage />} />
-                <Route path='/my-orders' element={<ProtectedRoute> {orders} </ProtectedRoute>}/>
+                <Route path='/my-orders' element={<ProtectedRoute> {orders} </ProtectedRoute>} />
             </Routes>
         </>
     );

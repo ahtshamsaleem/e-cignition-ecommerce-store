@@ -1,5 +1,4 @@
 import { arrowRight } from "../assets/icons";
-import { offer } from "../assets/images";
 import img from '../assets/section/2.png'
 import { Button } from "../components";
 
@@ -7,12 +6,7 @@ const SpecialOffer = ({bgColor, txtColor, border}) => {
   return (
     <section className=' flex justify-between items-start max-xl:flex-col-reverse gap-10 max-container'>
       <div className='flex-1 '>
-        <img
-          src={img}
-          alt='Shoe Promotion'
-          
-          className='object-contain w-full rounded-2xl '
-        />
+        <img src={img} alt='Shoe Promotion' className='object-contain w-full rounded-2xl ' />
       </div>
       <div className='flex flex-1 flex-col justify-start '>
         <h2 className='text-4xl font-palanquin font-bold'>
@@ -36,12 +30,6 @@ const SpecialOffer = ({bgColor, txtColor, border}) => {
         </p>
         <div className='mt-11 flex flex-wrap gap-4 '>
           <Button label='Shop now' iconURL={arrowRight} backgroundColor={bgColor} textColor='text-white' borderColor={border}/>
-          {/* <Button
-            label='Learn more'
-            backgroundColor='bg-white'
-            borderColor='border-slate-gray'
-            textColor='text-slate-gray'
-          /> */}
         </div>
       </div>
     </section>

@@ -48,7 +48,7 @@ export const validateInput = (inputName, value, isTouch, setIsTouch, isValid, se
 
 
 
-
+//validate 2
 
 const validateName = (value) => {
     if (value.trim() === '' || value.length > 25) {

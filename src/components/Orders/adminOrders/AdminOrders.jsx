@@ -24,12 +24,12 @@ const AdminOrders = () => {
     const to = useSelector(state => state.ui.uiColor.to);
 
     const dispatch = useDispatch();
-    console.log(AdminOrders)
+
 
 
     
 
-   
+  
    
 
 
@@ -37,6 +37,7 @@ const AdminOrders = () => {
     useEffect(() => {
 
        
+
 
             dispatch(fetchOrders(email));
             

@@ -11,7 +11,7 @@ export const navLinks = [
         label: "Products",
         subMenu: [
             { to: "/pods", label: "Pods" },
-            { to: "/vapes", label: "Vapes" },
+            // { to: "/vapes", label: "Vapes" },
             { to: "/flavors", label: "Flavors" },
         ],
     },
@@ -331,12 +331,12 @@ export const footerLinks = [
     {
         title: "Products",
         links: [
-            { name: "Voopoo Argus P1", link: "/" },
-            { name: "Voopoo Drag 4", link: "/" },
-            { name: "Voopoo Argus G", link: "/" },
-            { name: "Uwell Caliburn GK2", link: "/" },
-            { name: "Voopoo V.Thru Pro", link: "/" },
-            { name: "Uwell Caliburn A2", link: "/" },
+            { name: "Voopoo Argus P1", link: "/product/Voopoo%20Argus%20P1%20Pod" },
+            { name: "Voopoo Drag 4", link: "/product/Voopoo%20Drag%204%20Pod" },
+            { name: "Voopoo Argus G", link: "/product/Voopoo%20Argus%20G%20Pod" },
+            { name: "Uwell Caliburn GK2", link: "/product/Uwell%20Caliburn%20GK2%20Pod" },
+            { name: "Voopoo V.Thru Pro", link: "/product/Voopoo%20V.Thru%20Pro%20Pod" },
+            { name: "Uwell Caliburn A2", link: "/product/Uwell%20Caliburn%20A2" },
         ],
     },
     {
@@ -352,7 +352,7 @@ export const footerLinks = [
     {
         title: "Get in touch",
         links: [
-            { name: "customer@nike.com", link: "mailto:customer@nike.com" },
+            { name: "customer@cignition.com", link: "mailto:customer@ecignition.com" },
             { name: "+923016667656", link: "tel:+923016667656" },
         ],
     },

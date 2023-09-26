@@ -4,10 +4,15 @@ import { products } from '../../constants/index';
 import AtcBtn from '../productDetails/atcBtn/AtcBtn';
 import Header from '../Header';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, calculatePrice } from '../../redux-slices/cart-slice';
+import { Footer } from '../../sections';
 
 const ProductPage = () => {
+
+    const from = useSelector(state => state.ui.uiColor.from);
+    const to = useSelector(state => state.ui.uiColor.to);
+
     const dispatch = useDispatch();
     const { id } = useParams();
 
@@ -44,7 +49,7 @@ useEffect(() => {
     return (
         <>
             <Header />
-            <section className='w-full h-full   mt-28 flex justify-around max-lg:flex-col lg:p-20 items-center '>
+            <section className={`w-full h-full  py-24 lg:py-44 flex justify-around max-lg:flex-col lg:px-20   items-center bg-gradient-to-r ${from} ${to}`}>
                 <div className='lg:w-[50%] flex justify-center mb-16 '>
                     <div className='lg:w-[500px]   p-8 relative border-black'>
                         <img
@@ -94,6 +99,10 @@ useEffect(() => {
                     </p>
                 </div>
             </section>
+
+            <section className=' bg-black padding-x padding-t pb-8'>
+          <Footer />
+        </section>
         </>
     );
 };

@@ -1,13 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-
-
-
-
-
-
-
-
-
+import { createSlice } from '@reduxjs/toolkit'
 
 
 
@@ -24,7 +15,7 @@ const authSlice = createSlice({
         addUser : (state, action) => {
             state.isLoading = false;
             state.user = action.payload;
-            console.log(action.payload)
+
             if (action.payload.email === 'umershah@gmail.com') {
                 state.isAdmin = true;
             } else {
@@ -33,7 +24,6 @@ const authSlice = createSlice({
         },
 
         removeUser : (state) => {
-            
             state.user = null;
         }
     },
@@ -44,9 +34,5 @@ const authSlice = createSlice({
 })
 
 
-
-
-
 export const {addUser, removeUser} = authSlice.actions;
-
 export default authSlice.reducer;
