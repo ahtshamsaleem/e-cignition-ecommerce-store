@@ -1,5 +1,5 @@
 import { copyrightSign } from "../assets/icons";
-import { footerLogo } from "../assets/images";
+import footerLogo from '../assets/footer.png';
 import { footerLinks, socialMedia } from "../constants";
 
 const Footer = () => {
@@ -17,8 +17,7 @@ const Footer = () => {
             />
           </a>
           <p className='mt-6 text-base leading-7 font-montserrat text-white-400 sm:max-w-sm'>
-            Get shoes ready for the new term at your nearest Nike store. Find
-            Your perfect Size In Store. Get Rewards
+            Get yourself with the most authentic pods & flavors in Pakistan. And enjoy the orginal products from e-cignition!
           </p>
           <div className='flex items-center gap-5 mt-8'>
             {socialMedia.map((icon) => (

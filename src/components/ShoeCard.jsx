@@ -32,6 +32,23 @@ const ShoeCard = ({ img, changeBigHeroImage, bigHeroImg, setHeroClr, id, setBgBt
 
 
 
+    let border = 'border-green-600';
+
+    if (id === 'h1') {
+        border = 'border-green-600';
+    }
+
+    if (id === 'h2') {
+        border = 'border-blue-600';
+    }
+
+    if (id === 'h3') {
+        border = 'border-orange-600';
+    }
+
+
+
+
 
 
 
@@ -44,11 +61,11 @@ const ShoeCard = ({ img, changeBigHeroImage, bigHeroImg, setHeroClr, id, setBgBt
     return (
         <div
             className={`border-2 rounded-xl ${
-                bigHeroImg === img ? "border-coral-red" : "border-transparent"
+                bigHeroImg === img ? border : "border-transparent"
             } cursor-pointer max-sm:flex-1`}
             onClick={handleClick}
         >
-            <div className='flex justify-center items-center bg-card bg-center bg-cover sm:w-28 sm:h-28 rounded-xl max-sm:p-4'>
+            <div className={`flex justify-center items-center ${id === 'h1'? 'bg-green-500/[0.2]' : id === 'h2'? 'bg-blue-500/[0.2]' : id === 'h3'? 'bg-orange-500/[0.2]' : null} bg-center bg-cover sm:w-28 sm:h-28 rounded-xl max-sm:p-4`}>
                 <img
                     src={img}
                     alt='pods collection'

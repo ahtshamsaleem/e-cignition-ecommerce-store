@@ -331,12 +331,12 @@ export const footerLinks = [
     {
         title: "Products",
         links: [
-            { name: "Air Force 1", link: "/" },
-            { name: "Air Max 1", link: "/" },
-            { name: "Air Jordan 1", link: "/" },
-            { name: "Air Force 2", link: "/" },
-            { name: "Nike Waffle Racer", link: "/" },
-            { name: "Nike Cortez", link: "/" },
+            { name: "Voopoo Argus P1", link: "/" },
+            { name: "Voopoo Drag 4", link: "/" },
+            { name: "Voopoo Argus G", link: "/" },
+            { name: "Uwell Caliburn GK2", link: "/" },
+            { name: "Voopoo V.Thru Pro", link: "/" },
+            { name: "Uwell Caliburn A2", link: "/" },
         ],
     },
     {

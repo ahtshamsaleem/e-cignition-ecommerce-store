@@ -5,7 +5,7 @@ import { CgShoppingCart } from 'react-icons/cg';
 import { useSelector } from 'react-redux';
 import Menu from './Menu';
 import MobileNav from './MobileNav';
-import logo from '../assets/Ec.png'
+
 
 
 const Nav = () => {
