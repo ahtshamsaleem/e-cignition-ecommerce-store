@@ -5,7 +5,7 @@ import { InputCmp, RadioInputGender } from './components/components';
 import { validateInput2 } from '../../../Utility/ValidateInput';
 
 import { auth } from '../../../firebase';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../../../redux-slices/auth-slice';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
@@ -13,6 +13,11 @@ import Spinner from '../../UI/Spinner';
 import { Footer } from '../../../sections';
 
 const SignUp = () => {
+
+    const from = useSelector(state => state.ui.uiColor.from);
+    const to = useSelector(state => state.ui.uiColor.to);
+
+
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
@@ -136,7 +141,7 @@ const SignUp = () => {
         <>  
         {isLoading && <div className='fixed w-[100vw] h-[100vh] z-[200] flex justify-center items-center bg-gray-600/[0.1] backdrop-blur-[2px] '><div className='text-red-400 '><Spinner /></div> </div>}
             <Header />
-            <section className=' w-full  py-32 px-28 xl:px-64 bg-gradient-to-r from-[#c1dfc4] to-[#deecdd] max-lg:px-8 max-lg:py-24'>
+            <section className={`w-full  py-32 px-28 xl:px-64 bg-gradient-to-r ${from} ${to} max-lg:px-8 max-lg:py-24`}>
                 <div className='flex flex-row justify-center items-center bg-white rounded-xl overflow-hidden shadow-lg '>
                     <div className=' shadow-black shadow-md w-[44%] bg-center bg-[url(/src/assets/img/cart/4.jpg)] h-[500px] max-lg:h-[600px] bg-cover max-md:hidden relative'>
                         <span className='flex w-full h-full  bg-gradient-to-b  from-black/[0.3] via-transparent to-black/[0.3] '></span>

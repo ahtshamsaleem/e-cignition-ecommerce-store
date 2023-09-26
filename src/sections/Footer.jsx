@@ -1,8 +1,14 @@
 import { copyrightSign } from "../assets/icons";
-import footerLogo from '../assets/footer.png';
+
 import { footerLinks, socialMedia } from "../constants";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+    const footerLogo = useSelector(s=>s.ui.uiColor.footerLogo)
+
+
+
+
   return (
     <footer className='max-container'>
       <div className='flex justify-between items-start gap-20 flex-wrap max-lg:flex-col'>

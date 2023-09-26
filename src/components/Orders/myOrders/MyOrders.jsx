@@ -6,11 +6,15 @@ import { useEffect } from 'react';
 import { fetchOrders, removeAllOrders } from '../../../redux-slices/orders-slice';
 import Spinner from '../../UI/Spinner';
 import { useMemo } from 'react';
+import { Footer } from '../../../sections';
 
 const MyOrders = () => {
     const myOrders = useSelector((state) => state.orders.orders);
     const isLoading = useSelector((state) => state.orders.isLoading);
-    const email = useSelector(state => state.auth.user.email)
+    const email = useSelector(state => state.auth.user.email);
+
+    const from = useSelector(state => state.ui.uiColor.from);
+    const to = useSelector(state => state.ui.uiColor.to);
 
     const dispatch = useDispatch();
 
@@ -27,8 +31,8 @@ const MyOrders = () => {
         <>
             <Header />
 
-            <section className=' w-full h-[100vh] pt-[80px] py-28 px-28 xl:px-64 bg-gradient-to-r from-teal-500/[0.4] to-cyan-500/[0.4] max-lg:p-8'>
-                <div className=' h-[90%] max-md:h-[80%] mt-16 overflow-y-auto flex flex-col justify-start items-center bg-white rounded-xl overflow-hidden shadow-lg relative'>
+            <section className={`w-full h-[100vh] pt-[80px] py-28 px-28 xl:px-64 bg-gradient-to-r ${from} ${to} max-lg:p-8`}>
+                <div className=' h-[90%] max-md:h-[80%] mt-16 overflow-y-auto flex flex-col justify-start items-center bg-white/[0.6] rounded-xl overflow-hidden shadow-lg relative'>
                     {isLoading ? (
                         <div className='absolute top-[40%] '>
                             <Spinner />
@@ -65,6 +69,10 @@ const MyOrders = () => {
                         </>
                     )}
                 </div>
+            </section>
+
+            <section className=' bg-black padding-x padding-t pb-8'>
+                <Footer />
             </section>
         </>
     );

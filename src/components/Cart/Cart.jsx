@@ -6,6 +6,9 @@ import Header from '../Header';
 import Footer from '../../sections/Footer';
 
 const Cart = ({ children }) => {
+    const from = useSelector(state => state.ui.uiColor.from);
+    const to = useSelector(state => state.ui.uiColor.to);
+
     const totalPriceIs = useSelector((state) => state.cart.totalPrice);
     const navigate = useNavigate();
 
@@ -15,7 +18,7 @@ const Cart = ({ children }) => {
     return (
         <>
             <Header />
-            <div className='w-[100vw]  h-full overflow-hidden bg-gradient-to-r from-[#c1dfc4] to-[#deecdd]'>
+            <div className={`w-[100vw]  h-full overflow-hidden bg-gradient-to-r ${from} ${to}`}>
                 <div
                     className={`h-auto flex flex-row justify-center items-center py-10  overflow-y-auto  `}
                 >

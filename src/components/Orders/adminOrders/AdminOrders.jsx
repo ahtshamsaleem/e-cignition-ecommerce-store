@@ -9,6 +9,7 @@ import { useMemo } from 'react';
 import AdminOrder from './AdminOrder';
 import { useState } from 'react';
 import MobileAdminOrder from './MobileAdminOrder';
+import { Footer } from '../../../sections';
 
 
 
@@ -17,7 +18,10 @@ const AdminOrders = () => {
     const [isMobile, setIsMobile] = useState(false);
     const AdminOrders = useSelector((state) => state.orders.orders);
     const isLoading = useSelector((state) => state.orders.isLoading);
-    const email = useSelector(state => state.auth.user.email)
+    const email = useSelector(state => state.auth.user.email);
+
+    const from = useSelector(state => state.ui.uiColor.from);
+    const to = useSelector(state => state.ui.uiColor.to);
 
     const dispatch = useDispatch();
     console.log(AdminOrders)
@@ -44,8 +48,8 @@ const AdminOrders = () => {
         <>
             <Header />
 
-            <section className=' w-full h-[100vh] pt-[40px] py-8 px-0 xl:px-0 bg-gradient-to-r from-slate-500/[0.4] to-cyan-500/[0.4] '>
-                <div className='w-full h-[90%] max-md:h-[80%] mt-16 overflow-y-auto flex flex-col justify-start items-center bg-white  overflow-hidden shadow-lg relative'>
+            <section className={`w-full h-[100vh] pt-[40px] py-8 px-0 xl:px-0 bg-gradient-to-r ${from} ${to}`}>
+                <div className='w-full h-[90%] max-md:h-[80%] mt-16 overflow-y-auto flex flex-col justify-start items-center bg-white/[0.6]  overflow-hidden shadow-lg relative'>
                     {isLoading ? (
                         <div className='absolute top-[40%] '>
                             <Spinner />
@@ -142,6 +146,10 @@ const AdminOrders = () => {
                         </>
                     )}
                 </div>
+            </section>
+
+            <section className=' bg-black padding-x padding-t pb-8'>
+                <Footer />
             </section>
         </>
     );

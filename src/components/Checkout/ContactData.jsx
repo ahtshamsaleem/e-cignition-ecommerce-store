@@ -188,9 +188,9 @@ const ContactData = () => {
             {orderModal && <OrderedModal products={orderedProducts} />}
             {
                 isLoading ? Spinner : (
-                    <div className='outer w-full mt-5 max-md:w-[90vw] ' id='contact' ref={form}>
-                <form onSubmit={onSubmitHandler}>
-                    <div ref={ref} className='inner w-full flex flex-col p-8 max-md:px-4 max-md:py-8 rounded-lg shadow-black/[0.4] shadow-md  bg-gray-100/[0.2] ' >
+                    <div className='outer w-full mt-5 max-md:w-[90vw] pb-10' id='contact' ref={form}>
+                <form onSubmit={onSubmitHandler} >
+                    <div ref={ref} className=' inner w-full flex flex-col p-8 max-md:px-4 max-md:py-8 rounded-lg shadow-black/[0.4] shadow-md  bg-gray-100/[0.2] ' >
                     <div className='wrapper xwidth flex flex-col items-start mb-2 '>
                                 <label htmlFor='name' 
                                     className=''

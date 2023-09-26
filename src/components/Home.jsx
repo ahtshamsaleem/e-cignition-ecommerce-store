@@ -1,12 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setBgColor, setBigHeroImg, setBorderClr, setGradientFrom, setGradientTo, setHeadingClr, setLogo, setTxtColor } from '../redux-slices/ui-slice';
+import { setBgColor, setBigHeroImg, setBorderClr, setFooterLogo, setGradientFrom, setGradientTo, setHeadingClr, setLogo, setTxtColor } from '../redux-slices/ui-slice';
 import { CustomerReviews, Footer, Hero, Services, SpecialOffer, Subscribe, SuperQuality, } from '../sections';
 import Header from './Header';
 import PopularProducts from './PopularProducts';
-import green from '../assets/green.png'
-import blue from '../assets/blue.png'
-import orange from '../assets/orange.png'
+import green from '../assets/green.png';
+import blue from '../assets/blue.png';
+import orange from '../assets/orange.png';
+import footerGreen from '../assets/footerGreen.png';
+import footerBlue from '../assets/footerBlue.png';
+import footerOrange from '../assets/footerOrange.png';
 import { img1, img2, img3 } from '../assets/img';
 
 const Home = () => {
@@ -39,6 +42,8 @@ const Home = () => {
         dispatch(setHeadingClr('text-transparent bg-clip-text bg-gradient-to-r to-green-500 from-slate-800'));
 
         dispatch(setBigHeroImg(img1));
+
+        dispatch(setFooterLogo(footerGreen));
     }
 
     const change2Blue = () => {
@@ -53,6 +58,8 @@ const Home = () => {
         dispatch(setHeadingClr('text-transparent bg-clip-text bg-gradient-to-r to-blue-500 from-slate-800'));
 
         dispatch(setBigHeroImg(img2));
+
+        dispatch(setFooterLogo(footerBlue));
     }
 
     const change2Orange = () => {
@@ -67,6 +74,8 @@ const Home = () => {
         dispatch(setHeadingClr('text-transparent bg-clip-text bg-gradient-to-r to-orange-500 from-slate-800'));
 
         dispatch(setBigHeroImg(img3));
+
+        dispatch(setFooterLogo(footerOrange));
     }
 
 

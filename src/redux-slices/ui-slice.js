@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit' 
 import green from '../assets/green.png';
 import { img1 } from '../assets/img'
+import footerGreen from '../assets/footerGreen.png'
 
 
 const initialState = {
@@ -18,7 +19,9 @@ const initialState = {
 
         HeadingClr : 'text-transparent bg-clip-text bg-gradient-to-r to-green-500 from-slate-800',
 
-        bigHeroImg : img1
+        bigHeroImg : img1,
+
+        footerLogo: footerGreen
     }
 }
 
@@ -62,12 +65,16 @@ const uiSlice = createSlice({
         setBigHeroImg : (state, action) => {
             state.uiColor.bigHeroImg = action.payload;
         },
+
+        setFooterLogo : (state, action) => {
+            state.uiColor.footerLogo = action.payload;
+        },
         
     }
 })
 
 
-export const  { setBgColor, setTxtColor, setBorderClr, setGradientFrom, setGradientTo, setLogo, setHeadingClr, setBigHeroImg } = uiSlice.actions;
+export const  { setBgColor, setTxtColor, setBorderClr, setGradientFrom, setGradientTo, setLogo, setHeadingClr, setBigHeroImg, setFooterLogo } = uiSlice.actions;
 
 
 export default uiSlice.reducer;
